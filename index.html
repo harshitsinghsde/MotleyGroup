@@ -22,7 +22,6 @@
             --border-color: #e2e8f0;
             --accent-green: #2e7d32;
             
-            /* Signature Easing Curves */
             --ease-custom: cubic-bezier(0.16, 1, 0.3, 1);
             --transition-fast: all 0.25s var(--ease-custom);
             --transition-smooth: all 0.4s var(--ease-custom);
@@ -35,8 +34,9 @@
         body {
             color: var(--black);
             line-height: 1.6;
-            background-color: #ffffff;
+            background-color: #050811;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         a {
@@ -133,7 +133,6 @@
             width: 100%;
         }
 
-        /* Button Dynamics */
         .btn-quote {
             background-color: var(--primary-blue);
             color: #ffffff;
@@ -154,10 +153,6 @@
             border-color: var(--dark-blue);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 82, 155, 0.25);
-        }
-
-        .btn-quote:active {
-            transform: translateY(0) scale(0.98);
         }
 
         /* Hero Banner */
@@ -200,11 +195,6 @@
             letter-spacing: 1.5px;
             margin-bottom: 15px;
             display: inline-block;
-            transition: var(--transition-smooth);
-        }
-
-        .hero:hover .hero-tag {
-            letter-spacing: 2px;
         }
 
         .hero h1 {
@@ -213,7 +203,6 @@
             line-height: 1.2;
             margin-bottom: 20px;
             color: var(--black);
-            letter-spacing: -0.5px;
         }
 
         .hero h1 strong {
@@ -225,9 +214,7 @@
             font-size: 18px;
             color: var(--gray);
             margin-bottom: 35px;
-            font-weight: 400;
             max-width: 750px;
-            line-height: 1.6;
         }
 
         .hero-buttons {
@@ -247,457 +234,266 @@
             transition: var(--transition-fast);
             display: inline-block;
             background: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Animated Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            z-index: 10;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .scroll-indicator .mouse {
+            width: 26px;
+            height: 42px;
+            border: 2px solid var(--dark-blue);
+            border-radius: 15px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(4px);
         }
 
-        .btn-secondary:hover {
-            background-color: var(--dark-blue);
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 47, 108, 0.15);
-        }
-
-        .btn-secondary:active {
-            transform: translateY(0) scale(0.98);
-        }
-
-        /* Animated Dark Background Utility Class */
-        .animated-bg {
-            background: radial-gradient(circle at 20% 30%, #0d1527 0%, #050811 50%, #000000 100%);
-            background-size: 200% 200%;
-            animation: darkBgShift 12s ease infinite alternate;
-        }
-
-        @keyframes darkBgShift {
-            0% {
-                background-position: 0% 0%;
-            }
-            50% {
-                background-position: 100% 100%;
-            }
-            100% {
-                background-position: 0% 100%;
-            }
-        }
-
-        /* Vision & Mission Banner */
-        .vision-mission {
-            padding: 40px 8% 80px 8%;
-        }
-
-        .vm-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: stretch;
-            width: 100%;
-        }
-
-        .vm-card {
-            background-color: rgba(17, 17, 17, 0.85);
-            backdrop-filter: blur(8px);
-            padding: 48px 40px;
-            border-radius: 0px;
-            border-top: 4px solid var(--primary-blue);
-            border-left: 1px solid #222222;
-            border-right: 1px solid #222222;
-            border-bottom: 1px solid #222222;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            transition: var(--transition-smooth);
-            position: relative;
-            top: 0;
-        }
-
-        .vm-card:hover {
-            top: -6px;
-            background-color: rgba(22, 22, 22, 0.95);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
-            border-top-width: 6px;
-        }
-
-        .vm-card.mission {
-            border-top-color: var(--accent-green);
-        }
-
-        .vm-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 20px;
-        }
-
-        .vm-card h3 {
-            color: #ffffff;
-            font-size: 24px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition-fast);
-            margin: 0;
-        }
-
-        .vm-card:hover h3 {
-            color: #60a5fa;
-            transform: translateX(4px);
-        }
-
-        .vm-card.mission:hover h3 {
-            color: #a7f3d0;
-        }
-
-        /* Animated Eye Icon Styling (Vision) */
-        .eye-icon {
-            width: 32px;
-            height: 32px;
-            flex-shrink: 0;
-        }
-
-        .eye-outline {
-            stroke: #60a5fa;
-            transition: stroke 0.3s var(--ease-custom);
-        }
-
-        .eye-pupil {
-            fill: #60a5fa;
-            transform-origin: 16px 16px;
-            animation: eyeScan 4s infinite ease-in-out;
-        }
-
-        .eye-iris {
-            stroke: #60a5fa;
-            transition: stroke 0.3s var(--ease-custom);
-        }
-
-        .vm-card:hover .eye-outline {
-            stroke: #ffffff;
-        }
-
-        .vm-card:hover .eye-pupil {
-            animation-duration: 2s;
-        }
-
-        @keyframes eyeScan {
-            0%, 100% { transform: translate(0, 0); }
-            20% { transform: translate(-3px, -1px); }
-            40% { transform: translate(3px, 1px); }
-            60% { transform: translate(2px, -2px); }
-            80% { transform: translate(-2px, 2px); }
-        }
-
-        /* Animated Target Icon Styling (Mission) */
-        .target-icon {
-            width: 32px;
-            height: 32px;
-            flex-shrink: 0;
-        }
-
-        .target-outer {
-            stroke: var(--accent-green);
-            transform-origin: 16px 16px;
-            transition: stroke 0.3s var(--ease-custom);
-            animation: targetSpin 8s linear infinite;
-        }
-
-        .target-inner {
-            stroke: #a7f3d0;
-            transform-origin: 16px 16px;
-            animation: targetPulse 2s ease-in-out infinite alternate;
-        }
-
-        .target-center {
-            fill: #a7f3d0;
-            transform-origin: 16px 16px;
-            animation: centerPulse 1.5s ease-in-out infinite alternate;
-        }
-
-        .vm-card.mission:hover .target-outer {
-            stroke: #a7f3d0;
-            animation-duration: 3s;
-        }
-
-        @keyframes targetSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes targetPulse {
-            0% { transform: scale(0.85); stroke-width: 1.5; }
-            100% { transform: scale(1.1); stroke-width: 2.5; }
-        }
-
-        @keyframes centerPulse {
-            0% { transform: scale(0.8); opacity: 0.7; }
-            100% { transform: scale(1.3); opacity: 1; }
-        }
-
-        .vm-card p {
-            font-size: 17px;
-            line-height: 1.7;
-            color: #cbd5e1;
-        }
-
-        @media (max-width: 900px) {
-            .vm-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero {
-                background: linear-gradient(
-                    180deg, 
-                    rgba(255, 255, 255, 0.95) 0%, 
-                    rgba(255, 255, 255, 0.85) 100%
-                ), 
-                url('Hero.png') center/cover no-repeat;
-            }
-        }
-
-        /* Services Grid Section */
-        .section-padding {
-            padding: 0 8% 80px 8%;
-            color: #ffffff;
-        }
-
-        .section-header {
-            margin-bottom: 55px;
-        }
-
-        .section-title {
-            font-size: 34px;
-            color: #ffffff;
-            font-weight: 300;
-            letter-spacing: -0.5px;
-            margin-bottom: 10px;
-        }
-
-        .section-subtitle {
-            color: #a0aec0;
-            font-size: 16px;
-            max-width: 700px;
-            font-weight: 400;
-        }
-
-        .category-title {
-            font-size: 24px;
-            color: #ffffff;
-            font-weight: 700;
-            border-bottom: 1px solid #222222;
-            padding-bottom: 12px;
-            margin: 70px 0 35px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            letter-spacing: 0.5px;
-            transition: var(--transition-fast);
-        }
-
-        .category-tag {
-            font-size: 12px;
-            background-color: #1a1a1a;
-            color: #60a5fa;
-            padding: 6px 14px;
-            border-radius: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            border: 1px solid #333333;
-            transition: var(--transition-fast);
-        }
-
-        .category-title:hover .category-tag {
+        .scroll-indicator .wheel {
+            width: 4px;
+            height: 8px;
             background-color: var(--primary-blue);
-            color: #ffffff;
-            border-color: var(--primary-blue);
+            border-radius: 2px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scrollWheel 1.8s infinite ease-in-out;
         }
 
-        /* Full-Width Full Page Cards Container */
-        .card-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 45px;
-            width: 100%;
+        .scroll-indicator .arrow {
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid var(--dark-blue);
+            border-bottom: 2px solid var(--dark-blue);
+            transform: rotate(45deg);
+            animation: arrowBounce 1.8s infinite ease-in-out;
         }
 
-        /* Full Page Interactive Service Cards */
-        .card {
-            background: rgba(17, 17, 17, 0.85);
-            backdrop-filter: blur(8px);
-            border: 1px solid #222222;
-            padding: 45px;
-            border-top: 4px solid var(--primary-blue);
-            transition: var(--transition-smooth);
+        .scroll-indicator span {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--dark-blue);
+        }
+
+        @keyframes scrollWheel {
+            0% { opacity: 1; transform: translate(-50%, 0); }
+            100% { opacity: 0; transform: translate(-50%, 14px); }
+        }
+
+        @keyframes arrowBounce {
+            0%, 20%, 50%, 80%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.8; }
+            40% { transform: rotate(45deg) translate(4px, 4px); opacity: 1; }
+            60% { transform: rotate(45deg) translate(2px, 2px); opacity: 1; }
+        }
+
+        /* 3D FIELD TRANSITION CONTAINER */
+        .fld__field {
             position: relative;
+            width: 100%;
+            height: 600vh;
+            background-color: #050811;
+        }
+
+        .fld__stage {
+            position: sticky;
             top: 0;
+            width: 100%;
+            height: 100vh;
+            perspective: 1200px;
+            perspective-origin: 50% 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fld__deep {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        /* Centered 3D Floating Cards */
+        .fld__pl {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: var(--w, 65vw);
+            max-width: 900px;
+            min-height: 380px;
+            transform-style: preserve-3d;
+            transform: translate3d(-50%, -50%, calc(var(--z, 0) * 1px));
+            background: rgba(17, 17, 24, 0.94);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-top: 4px solid var(--primary-blue);
+            padding: 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85);
+            transition: opacity 0.3s ease, visibility 0.3s ease, border-color 0.4s ease;
+            will-change: transform, opacity;
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
             align-items: center;
-            gap: 40px;
-            width: 100%;
-            min-height: 380px;
+            gap: 30px;
+            border-radius: 6px;
         }
 
-        .card:hover {
-            top: -6px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
-            border-top-width: 6px;
-        }
-
-        .card.accent-green { border-top-color: var(--accent-green); }
-        .card.accent-amber { border-top-color: #d97706; }
-        .card.accent-red { border-top-color: #dc2626; }
-        .card.accent-purple { border-top-color: #7c3aed; }
+        .fld__pl.accent-green { border-top-color: var(--accent-green); }
+        .fld__pl.accent-amber { border-top-color: #d97706; }
+        .fld__pl.accent-red { border-top-color: #dc2626; }
+        .fld__pl.accent-purple { border-top-color: #7c3aed; }
 
         .card-body {
             flex: 1;
+            color: #ffffff;
         }
 
-        .card h4 {
+        .card-body h4 {
             font-size: 26px;
             color: #ffffff;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             font-weight: 600;
-            transition: var(--transition-fast);
         }
 
-        .card:hover h4 {
-            color: #60a5fa;
-            transform: translateX(4px);
-        }
-
-        .card ul {
+        .card-body ul {
             list-style: none;
             padding-left: 0;
         }
 
-        .card ul li {
-            font-size: 16px;
+        .card-body ul li {
+            font-size: 15px;
             color: #cbd5e1;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             position: relative;
-            padding-left: 24px;
-            line-height: 1.6;
-            transition: var(--transition-fast);
+            padding-left: 20px;
+            line-height: 1.5;
         }
 
-        .card ul li strong {
+        .card-body ul li strong {
             color: #ffffff;
         }
 
-        .card ul li::before {
+        .card-body ul li::before {
             content: "•";
             position: absolute;
             left: 0;
             color: var(--primary-blue);
             font-weight: bold;
-            font-size: 22px;
-            line-height: 18px;
-            transition: var(--transition-fast);
+            font-size: 20px;
+            line-height: 16px;
         }
 
-        .card:hover ul li::before {
-            transform: scale(1.4);
-        }
-
-        /* Large Image Panel for Full-Page Layout */
         .card-image-wrapper {
             flex: 0 0 38%;
-            width: 38%;
-            height: 300px;
+            height: 250px;
             border-radius: 4px;
             overflow: hidden;
-            border: 1px solid #333333;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             background-color: #1a1a1a;
-            display: flex;
         }
 
         .card-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition-smooth);
         }
 
-        .card:hover .card-img {
-            transform: scale(1.08);
+        /* HUD Overlay Elements */
+        .fld__hud {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            padding: 40px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 10;
         }
 
-        /* Retainer Table Micro-interactions */
-        .table-responsive {
-            overflow-x: auto;
-            background: rgba(17, 17, 17, 0.85);
-            backdrop-filter: blur(8px);
-            border: 1px solid #222222;
-            margin-top: 25px;
-            transition: var(--transition-smooth);
+        .fld__hud-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .table-responsive:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        .retainer-table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 14px;
-        }
-
-        .retainer-table th {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            padding: 16px 20px;
-            font-weight: 700;
+        .fld__hud-l {
+            font-size: 24px;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #38bdf8;
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .fld__hud-r {
             font-size: 12px;
-            letter-spacing: 0.8px;
-            border-bottom: 2px solid #333333;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #94a3b8;
         }
 
-        .retainer-table td {
-            padding: 18px 20px;
-            border-bottom: 1px solid #222222;
-            color: #cbd5e1;
-            transition: var(--transition-fast);
+        .fld__hud-bottom {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
         }
 
-        .retainer-table tr {
-            transition: var(--transition-fast);
+        .fld__hud-info {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
         }
 
-        .retainer-table tr:hover {
-            background-color: #1e293b;
-        }
-
-        .retainer-table tr:hover td {
+        .fld__hud-n {
+            font-size: 48px;
+            font-weight: 300;
             color: #ffffff;
-            transform: translateX(2px);
+            line-height: 1;
         }
 
-        .plan-badge {
-            font-weight: 700;
-            color: #60a5fa;
-        }
-
-        .gap-audit-box {
-            background-color: rgba(17, 17, 17, 0.85);
-            backdrop-filter: blur(8px);
-            border-left: 4px solid var(--primary-blue);
-            padding: 22px 28px;
-            margin-top: 30px;
-            font-size: 14px;
+        .fld__hud-t {
+            font-size: 20px;
+            font-weight: 600;
             color: #ffffff;
-            transition: var(--transition-smooth);
+            letter-spacing: 0.5px;
         }
 
-        .gap-audit-box:hover {
-            background-color: rgba(26, 26, 26, 0.95);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-            border-left-width: 6px;
+        .fld__hud-bar {
+            width: 200px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 2px;
+            overflow: hidden;
         }
 
-        /* Stats Bar - Green Background */
+        .fld__hud-bar i {
+            display: block;
+            height: 100%;
+            width: 100%;
+            background: #60a5fa;
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.1s linear;
+        }
+
+        /* Stats Bar & Footer */
         .stats {
             background-color: var(--accent-green);
             color: #ffffff;
@@ -705,46 +501,30 @@
             justify-content: space-around;
             padding: 60px 8%;
             text-align: center;
-        }
-
-        .stat-item {
-            transition: var(--transition-smooth);
-            cursor: default;
-            padding: 10px;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px) scale(1.05);
+            position: relative;
+            z-index: 5;
         }
 
         .stat-item h2 {
             font-size: 42px;
-            color: #ffffff;
             font-weight: 300;
-            letter-spacing: -1px;
             margin-bottom: 5px;
-            transition: var(--transition-fast);
-        }
-
-        .stat-item:hover h2 {
-            color: #a7f3d0;
-            text-shadow: 0 0 15px rgba(167, 243, 208, 0.4);
         }
 
         .stat-item p {
             font-size: 12px;
-            color: #e2e8f0;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 600;
         }
 
-        /* Footer */
         footer {
             background-color: #0b1320;
             color: #94a3b8;
             padding: 60px 8% 30px 8%;
             font-size: 14px;
+            position: relative;
+            z-index: 5;
         }
 
         .footer-grid {
@@ -760,19 +540,12 @@
             margin-bottom: 18px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            font-weight: 600;
         }
 
-        .footer-col p, .footer-col li {
+        .footer-col p {
             margin-bottom: 10px;
             font-size: 13px;
             color: #a0aec0;
-            transition: var(--transition-fast);
-        }
-
-        .footer-col p:hover {
-            color: #ffffff;
-            transform: translateX(3px);
         }
 
         .footer-bottom {
@@ -784,22 +557,24 @@
         }
 
         @media (max-width: 992px) {
-            .card {
+            .fld__hud-l {
+                font-size: 18px;
+            }
+            .fld__pl {
+                width: 85vw;
                 flex-direction: column-reverse;
-                align-items: stretch;
-                padding: 30px;
+                padding: 24px;
             }
             .card-image-wrapper {
                 width: 100%;
-                height: 240px;
-                flex: none;
+                height: 180px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Main Header Navbar -->
+    <!-- Main Navigation -->
     <nav class="navbar">
         <div class="logo-container">
             <img src="MotleyGroup_logo.png" alt="MotleyGroup Logo" class="logo-img">
@@ -809,12 +584,8 @@
             </div>
         </div>
         <ul class="nav-links">
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#water">Water Treatment</a></li>
-            <li><a href="#compliance">Statutory Clearances</a></li>
-            <li><a href="#safety">Fire & Thermal</a></li>
-            <li><a href="#ai">Edge AI Vision</a></li>
-            <li><a href="#retainers">Retainer Plans</a></li>
+            <li><a href="#services">Services Field</a></li>
+            <li><a href="mailto:contact@motleygroup.com">Contact</a></li>
         </ul>
         <a href="mailto:contact@motleygroup.com" class="btn-quote">Get A Quote</a>
     </nav>
@@ -827,223 +598,153 @@
             <p>A single, accountable execution partner delivering in-house utility manufacturing, statutory clearances, precision diagnostics, and next-generation Edge AI hazard defense.</p>
             <div class="hero-buttons">
                 <a href="mailto:contact@motleygroup.com" class="btn-quote">Request Proposal</a>
-                <a href="#retainers" class="btn-secondary">View Retainer Plans</a>
+                <a href="#services" class="btn-secondary">Explore Services</a>
             </div>
         </div>
+
+        <!-- Animated Scroll Down Guidance -->
+        <a href="#services" class="scroll-indicator">
+            <span>Scroll Down</span>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow"></div>
+        </a>
     </header>
 
-    <!-- Vision & Mission -->
-    <section class="vision-mission animated-bg" id="about">
-        <div class="vm-grid">
-            <div class="vm-card">
-                <div class="vm-header">
-                    <svg class="eye-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path class="eye-outline" d="M2 16C2 16 7 6 16 6C25 6 30 16 30 16C30 16 25 26 16 26C7 26 2 16 2 16Z" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle class="eye-iris" cx="16" cy="16" r="6" stroke-width="2"/>
-                        <circle class="eye-pupil" cx="16" cy="16" r="3.5"/>
-                    </svg>
-                    <h3>Our Vision</h3>
+    <!-- 3D Field Transition Services Container -->
+    <div class="fld__field" id="services" data-fld="">
+        <div class="fld__stage">
+            
+            <!-- HUD Interactive Elements -->
+            <div class="fld__hud" aria-hidden="true">
+                <div class="fld__hud-top">
+                    <span class="fld__hud-l">Motley Group Capabilities</span>
+                    <span class="fld__hud-r">3D Spatial Centered View</span>
                 </div>
-                <p>To be the most trusted integrated environmental engineering and critical safety infrastructure enterprise — delivering sustainable water manufacturing, zero-friction regulatory clearances, and smart early-warning safety technologies under one accountable shield.</p>
-            </div>
-            <div class="vm-card mission">
-                <div class="vm-header">
-                    <svg class="target-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle class="target-outer" cx="16" cy="16" r="13" stroke-width="2" stroke-dasharray="4 3"/>
-                        <circle class="target-inner" cx="16" cy="16" r="8"/>
-                        <circle class="target-center" cx="16" cy="16" r="3"/>
-                        <line x1="16" y1="1" x2="16" y2="6" stroke="var(--accent-green)" stroke-width="2" stroke-linecap="round"/>
-                        <line x1="16" y1="26" x2="16" y2="31" stroke="var(--accent-green)" stroke-width="2" stroke-linecap="round"/>
-                        <line x1="1" y1="16" x2="6" y2="16" stroke="var(--accent-green)" stroke-width="2" stroke-linecap="round"/>
-                        <line x1="26" y1="16" x2="31" y2="16" stroke="var(--accent-green)" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                    <h3>Our Mission</h3>
-                </div>
-                <p>To safeguard industrial and institutional infrastructure through high-efficiency in-house water fabrication (ETP/STP/RO/Filters), comprehensive statutory liaison (UPPCB/BMW/CMO), turnkey fire protection, and sub-5-second Edge AI safety surveillance.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="section-padding animated-bg">
-        <div class="section-header">
-            <h2 class="section-title">Comprehensive Service Capabilities</h2>
-            <p class="section-subtitle">Turnkey engineering, manufacturing, statutory compliance, and critical safety infrastructure.</p>
-        </div>
-
-        <!-- Division 1 -->
-        <div class="category-title" id="water">
-            <span>1. Water & Wastewater Treatment Engineering</span>
-            <span class="category-tag">In-House Manufacturing</span>
-        </div>
-        <div class="card-grid">
-            <div class="card accent-green">
-                <div class="card-body">
-                    <h4>ETP & STP Plant Fabrication</h4>
-                    <ul>
-                        <li><strong>Effluent Treatment Plants (ETP):</strong> In-house design, sizing, and MS/FRP fabrication tailored to industrial COD/BOD loads.</li>
-                        <li><strong>Sewage Treatment Plants (STP):</strong> Custom biological systems based on MBBR and SBR technology.</li>
-                        <li><strong>Turnkey Execution:</strong> Complete civil, electromechanical installation, biological seeding, and commissioning.</li>
-                    </ul>
-                </div>
-                <div class="card-image-wrapper">
-                    <img src="etp_stp_plant.jpg" alt="ETP STP Plant" class="card-img">
+                <div class="fld__hud-bottom">
+                    <div class="fld__hud-info">
+                        <span class="fld__hud-n" data-fld-no="">01</span>
+                        <span class="fld__hud-t" data-fld-title="">ETP & STP Plant Fabrication</span>
+                    </div>
+                    <div class="fld__hud-bar"><i data-fld-bar=""></i></div>
                 </div>
             </div>
 
-            <div class="card accent-green">
-                <div class="card-body">
-                    <h4>Filtration & Softener Systems</h4>
-                    <ul>
-                        <li><strong>Industrial RO Plants:</strong> Heavy-duty Reverse Osmosis plants for process and dialysis-grade applications.</li>
-                        <li><strong>Water Softeners:</strong> Fully automatic softeners for low-hardness boiler feed and HVAC chillers.</li>
-                        <li><strong>Pre-Treatment Filters:</strong> Dual-Media, Pressure Sand Filters (PSF), and Activated Carbon Filters (ACF).</li>
-                    </ul>
-                </div>
-                <div class="card-image-wrapper">
-                    <img src="ro_softener.jpg" alt="RO & Softener Systems" class="card-img">
-                </div>
-            </div>
-        </div>
-
-        <!-- Division 2 -->
-        <div class="category-title" id="compliance">
-            <span>2. Statutory Approvals & Environmental Clearances</span>
-            <span class="category-tag">Compliance & Liaison</span>
-        </div>
-        <div class="card-grid">
-            <div class="card accent-amber">
-                <div class="card-body">
-                    <h4>Pollution & Waste Clearances</h4>
-                    <ul>
-                        <li><strong>UPPCB CTE & CTO:</strong> Consent to Establish and Consent to Operate Air/Water renewal processing.</li>
-                        <li><strong>Bio-Medical Waste (BMW):</strong> Authorization, barcoding setup, and annual compliance registers.</li>
-                        <li><strong>CGWA NOC:</strong> Central Ground Water Authority groundwater withdrawal processing.</li>
-                    </ul>
-                </div>
-                <div class="card-image-wrapper">
-                    <img src="pollution_clearance.jpg" alt="Pollution Approvals" class="card-img">
-                </div>
-            </div>
-
-            <div class="card accent-amber">
-                <div class="card-body">
-                    <h4>Institutional Licensing & Legal Support</h4>
-                    <ul>
-                        <li><strong>CMO Registrations:</strong> Chief Medical Officer hospital registration renewals and documentation.</li>
-                        <li><strong>AERB Approvals:</strong> Radiation facility approvals for radiology and diagnostic equipment.</li>
-                        <li><strong>Notice Support:</strong> Dedicated liaison and representation for regulatory show-cause notices.</li>
-                    </ul>
-                </div>
-                <div class="card-image-wrapper">
-                    <img src="licensing_legal.jpg" alt="Legal & Licensing Support" class="card-img">
-                </div>
-            </div>
-        </div>
-
-        <!-- Division 3 -->
-        <div class="category-title" id="safety">
-            <span>3. Fire Protection & Electrical Thermal Diagnostics</span>
-            <span class="category-tag">Critical Safety</span>
-        </div>
-        <div class="card-grid">
-            <div class="card accent-red">
-                <div class="card-body">
-                    <h4>Turnkey Fire Protection Systems</h4>
-                    <ul>
-                        <li><strong>Fire Suppression:</strong> Hydrant piping, automatic sprinklers, and diesel booster pump room installation.</li>
-                        <li><strong>Gas Suppression:</strong> Clean-agent gas suppression systems for server rooms and LT electrical panels.</li>
-                        <li><strong>Statutory Fire NOC:</strong> Safety audits, flow testing, and staff evacuation mock drills.</li>
-                    </ul>
-                </div>
-                <div class="card-image-wrapper">
-                    <img src="fire_protection.jpg" alt="Fire Protection Systems" class="card-img">
-                </div>
-            </div>
-
-            <div class="card accent-red">
-                <div class="card-body">
-                    <h4>FLIR Thermal & Power Audits</h4>
-                    <ul>
-                        <li><strong>Infrared Thermography:</strong> Non-invasive FLIR thermal imaging of main LT panels, ICU/OT switchgears.</li>
-                        <li><strong>Early Hotspot Warning:</strong> Identifies loose connections before electrical fire outbreaks.</li>
-                        <li><strong>Electrical Certification:</strong> Earth-resistance testing (Ohms), phase-load balancing, and certification.</li>
-                    </ul>
-                </div>
-                <div class="card-image-wrapper">
-                    <img src="flir_thermal.jpg" alt="FLIR Thermal Inspection" class="card-img">
-                </div>
-            </div>
-        </div>
-
-        <!-- Division 4 -->
-        <div class="category-title" id="ai">
-            <span>4. Edge AI Vision Labs</span>
-            <span class="category-tag">Decentralized Visual Safety</span>
-        </div>
-        <div class="card-grid">
-            <div class="card accent-purple">
-                <div class="card-body">
-                    <h4>Sub-5-Second Point-of-Origin Fire & Smoke Detection</h4>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            <!-- 3D Deep Canvas -->
+            <div class="fld__deep" data-fld-deep="">
+                
+                <!-- Card 1 -->
+                <article class="fld__pl accent-green" 
+                         data-no="01" 
+                         data-title="ETP & STP Plant Fabrication"
+                         style="--z: 0; --w: 65vw;">
+                    <div class="card-body">
+                        <h4>ETP & STP Plant Fabrication</h4>
                         <ul>
-                            <li><strong>Zero New Hardware:</strong> Runs over existing CCTV cameras (Hikvision, CP Plus, Dahua) via local RTSP stream.</li>
-                            <li><strong>Instant Multi-Alerts:</strong> 3-5 second WhatsApp photo alerts to 3-5 numbers + 100 dB on-site desktop siren.</li>
-                        </ul>
-                        <ul>
-                            <li><strong>100% Local Privacy:</strong> Video stays strictly on local LAN; zero cloud dependencies or bandwidth lag.</li>
-                            <li><strong>Smart Filtering:</strong> Eliminates false alarms (glare/stoves) with automated 9:00 AM daily heartbeat confirmation.</li>
+                            <li><strong>Effluent Treatment Plants (ETP):</strong> In-house design, sizing, and MS/FRP fabrication tailored to industrial COD/BOD loads.</li>
+                            <li><strong>Sewage Treatment Plants (STP):</strong> Custom biological systems based on MBBR and SBR technology.</li>
+                            <li><strong>Turnkey Execution:</strong> Complete civil, electromechanical installation, and commissioning.</li>
                         </ul>
                     </div>
-                </div>
-                <div class="card-image-wrapper">
-                    <img src="edge_ai_vision.jpg" alt="Edge AI Vision" class="card-img">
-                </div>
+                    <div class="card-image-wrapper">
+                        <img src="etp_stp_plant.jpg" alt="ETP STP Plant" class="card-img">
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="fld__pl accent-green" 
+                         data-no="02" 
+                         data-title="Filtration & Softener Systems"
+                         style="--z: -1800; --w: 65vw;">
+                    <div class="card-body">
+                        <h4>Filtration & Softener Systems</h4>
+                        <ul>
+                            <li><strong>Industrial RO Plants:</strong> Heavy-duty Reverse Osmosis plants for process and dialysis applications.</li>
+                            <li><strong>Water Softeners:</strong> Fully automatic softeners for low-hardness boiler feed and HVAC chillers.</li>
+                            <li><strong>Pre-Treatment Filters:</strong> Dual-Media, Pressure Sand Filters (PSF), and Carbon Filters.</li>
+                        </ul>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="ro_softener.jpg" alt="RO Systems" class="card-img">
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="fld__pl accent-amber" 
+                         data-no="03" 
+                         data-title="Pollution & Waste Clearances"
+                         style="--z: -3600; --w: 65vw;">
+                    <div class="card-body">
+                        <h4>Pollution & Waste Clearances</h4>
+                        <ul>
+                            <li><strong>UPPCB CTE & CTO:</strong> Consent to Establish and Consent to Operate processing.</li>
+                            <li><strong>Bio-Medical Waste (BMW):</strong> Authorization, barcoding setup, and annual registers.</li>
+                            <li><strong>CGWA NOC:</strong> Central Ground Water Authority withdrawal processing.</li>
+                        </ul>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="pollution_clearance.jpg" alt="Pollution Clearances" class="card-img">
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="fld__pl accent-amber" 
+                         data-no="04" 
+                         data-title="Institutional Licensing & Legal Support"
+                         style="--z: -5400; --w: 65vw;">
+                    <div class="card-body">
+                        <h4>Institutional Licensing & Legal Support</h4>
+                        <ul>
+                            <li><strong>CMO Registrations:</strong> Chief Medical Officer hospital registration renewals.</li>
+                            <li><strong>AERB Approvals:</strong> Radiation facility approvals for radiology equipment.</li>
+                            <li><strong>Notice Support:</strong> Liaison and representation for regulatory show-cause notices.</li>
+                        </ul>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="licensing_legal.jpg" alt="Legal & Licensing Support" class="card-img">
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="fld__pl accent-red" 
+                         data-no="05" 
+                         data-title="Turnkey Fire Protection Systems"
+                         style="--z: -7200; --w: 65vw;">
+                    <div class="card-body">
+                        <h4>Turnkey Fire Protection Systems</h4>
+                        <ul>
+                            <li><strong>Fire Suppression:</strong> Hydrant piping, automatic sprinklers, and booster pump room setup.</li>
+                            <li><strong>Gas Suppression:</strong> Clean-agent gas suppression for server rooms and LT panels.</li>
+                            <li><strong>Statutory Fire NOC:</strong> Safety audits, flow testing, and staff evacuation drills.</li>
+                        </ul>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="fire_protection.jpg" alt="Fire Protection" class="card-img">
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="fld__pl accent-purple" 
+                         data-no="06" 
+                         data-title="Sub-5-Second Edge AI Hazard Detection"
+                         style="--z: -9000; --w: 65vw;">
+                    <div class="card-body">
+                        <h4>Sub-5-Second Edge AI Hazard Detection</h4>
+                        <ul>
+                            <li><strong>Zero New Hardware:</strong> Leverages existing RTSP camera feeds.</li>
+                            <li><strong>Instant Multi-Alerts:</strong> 3-5 second WhatsApp photo alerts + desktop sirens.</li>
+                            <li><strong>100% Local Privacy:</strong> Streams processed locally with zero cloud dependencies.</li>
+                        </ul>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="edge_ai_vision.jpg" alt="Edge AI Vision" class="card-img">
+                    </div>
+                </article>
+
             </div>
         </div>
-
-        <!-- Division 5 -->
-        <div class="category-title" id="retainers">
-            <span>5. Annual Infrastructure & Compliance Retainer Packages</span>
-            <span class="category-tag">Retainer Plans</span>
-        </div>
-        <div class="table-responsive">
-            <table class="retainer-table">
-                <thead>
-                    <tr>
-                        <th>Plan Tier</th>
-                        <th>Target Facility</th>
-                        <th>Testing & Inspection Quota</th>
-                        <th>Statutory Scope Included</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="plan-badge">Hospital Shield</td>
-                        <td>30–50 Bed Nursing Homes</td>
-                        <td>4 NABL Tests, 2 STP/ETP Audits, 1 FLIR Scan, 1 Fire NOC Audit</td>
-                        <td>CTE/CTO, BMW & CMO Assistance + Notice Representation</td>
-                    </tr>
-                    <tr>
-                        <td class="plan-badge">Hospital Fortress</td>
-                        <td>50–150 Bed Multispecialty</td>
-                        <td>12 NABL Tests (Monthly), 4 ETP/STP Audits, 2 FLIR Scans, 2 Fire Audits</td>
-                        <td>Complete Regulatory Liaison + Unlimited Inspection Representation</td>
-                    </tr>
-                    <tr>
-                        <td class="plan-badge">Hospital Vault</td>
-                        <td>150+ Bed SuperSpecialty</td>
-                        <td>24 NABL Tests, 12 ETP/STP Audits, 4 FLIR Scans, 2 Fire Audits</td>
-                        <td>Comprehensive Full-Year Protection + Turnkey Remediation Support</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="gap-audit-box">
-            <strong>Zero-Risk Gap Audit:</strong> Motley Group provides a complimentary 25-point infrastructure and safety review before onboarding to evaluate utility health and regulatory standing.
-        </div>
-    </section>
+    </div>
 
     <!-- Key Metrics Stats Bar -->
     <section class="stats">
@@ -1078,14 +779,12 @@
                 <p>📍 Kanpur Nagar, Uttar Pradesh</p>
                 <p>📞 Rahul Singh: +91-8299288481</p>
                 <p>✉️ contact@motleygroup.com</p>
-                <p>🌐 www.motleygroup.com</p>
             </div>
             <div class="footer-col">
                 <h4>Key Solutions</h4>
                 <p>• ETP / STP / RO Systems</p>
                 <p>• UPPCB, BMW & CGWA Clearances</p>
                 <p>• Turnkey Fire Protection & FLIR</p>
-                <p>• Edge AI Visual Fire Detection</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -1093,5 +792,72 @@
         </div>
     </footer>
 
+    <!-- 3D Field Scroll Engine -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const field = document.querySelector('[data-fld]');
+            const cards = Array.from(document.querySelectorAll('.fld__pl'));
+            const hudNo = document.querySelector('[data-fld-no]');
+            const hudTitle = document.querySelector('[data-fld-title]');
+            const hudBar = document.querySelector('[data-fld-bar]');
+
+            const cardData = cards.map(card => {
+                const initZ = parseFloat(card.style.getPropertyValue('--z')) || 0;
+                return {
+                    el: card,
+                    initZ,
+                    no: card.dataset.no,
+                    title: card.dataset.title
+                };
+            });
+
+            const maxZTranslation = 9600;
+
+            function update3DField() {
+                const rect = field.getBoundingClientRect();
+                const fieldHeight = field.offsetHeight - window.innerHeight;
+                
+                let progress = -rect.top / fieldHeight;
+                progress = Math.max(0, Math.min(1, progress));
+
+                const currentZOffset = progress * maxZTranslation;
+
+                let activeCard = cardData[0];
+                let minDistance = Infinity;
+
+                cardData.forEach(item => {
+                    const currentZ = item.initZ + currentZOffset;
+                    
+                    let opacity = 1;
+                    if (currentZ > 400) {
+                        opacity = 1 - (currentZ - 400) / 400;
+                    } else if (currentZ < -2500) {
+                        opacity = Math.max(0, 1 - (-2500 - currentZ) / 2000);
+                    }
+                    opacity = Math.max(0, Math.min(1, opacity));
+
+                    item.el.style.setProperty('--z', currentZ);
+                    item.el.style.opacity = opacity;
+                    item.el.style.visibility = opacity > 0.02 ? 'visible' : 'hidden';
+
+                    const absZ = Math.abs(currentZ);
+                    if (absZ < minDistance) {
+                        minDistance = absZ;
+                        activeCard = item;
+                    }
+                });
+
+                if (hudNo && activeCard) hudNo.textContent = activeCard.no;
+                if (hudTitle && activeCard) hudTitle.textContent = activeCard.title;
+                if (hudBar) hudBar.style.transform = `scaleX(${progress})`;
+            }
+
+            window.addEventListener('scroll', () => {
+                requestAnimationFrame(update3DField);
+            }, { passive: true });
+
+            update3DField();
+        });
+    </script>
 </body>
 </html>
