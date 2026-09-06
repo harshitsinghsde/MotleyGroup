@@ -113,7 +113,6 @@
             transition: color 0.3s var(--ease-custom);
         }
 
-        /* Smooth Line Growing Effect */
         .nav-links li a::after {
             content: '';
             position: absolute;
@@ -171,10 +170,20 @@
             ), 
             url('Hero.png') center/cover no-repeat;
             color: var(--black);
-            padding: 120px 8%;
-            border-bottom: 1px solid var(--border-color);
+            padding: 120px 8% 180px 8%;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #050811 100%);
+            pointer-events: none;
         }
 
         .hero-content {
@@ -252,11 +261,28 @@
             transform: translateY(0) scale(0.98);
         }
 
+        /* Animated Dark Background Utility Class */
+        .animated-bg {
+            background: radial-gradient(circle at 20% 30%, #0d1527 0%, #050811 50%, #000000 100%);
+            background-size: 200% 200%;
+            animation: darkBgShift 12s ease infinite alternate;
+        }
+
+        @keyframes darkBgShift {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 100%;
+            }
+        }
+
         /* Vision & Mission Banner */
         .vision-mission {
-            background-color: #ffffff;
-            padding: 80px 8%;
-            border-bottom: 1px solid var(--border-color);
+            padding: 40px 8% 80px 8%;
         }
 
         .vm-grid {
@@ -268,10 +294,14 @@
         }
 
         .vm-card {
-            background-color: var(--light-gray);
+            background-color: rgba(17, 17, 17, 0.85);
+            backdrop-filter: blur(8px);
             padding: 48px 40px;
             border-radius: 0px;
             border-top: 4px solid var(--primary-blue);
+            border-left: 1px solid #222222;
+            border-right: 1px solid #222222;
+            border-bottom: 1px solid #222222;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -283,8 +313,8 @@
 
         .vm-card:hover {
             top: -6px;
-            background-color: #ffffff;
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+            background-color: rgba(22, 22, 22, 0.95);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
             border-top-width: 6px;
         }
 
@@ -300,7 +330,7 @@
         }
 
         .vm-card h3 {
-            color: var(--dark-blue);
+            color: #ffffff;
             font-size: 24px;
             font-weight: 700;
             text-transform: uppercase;
@@ -310,12 +340,12 @@
         }
 
         .vm-card:hover h3 {
-            color: var(--primary-blue);
+            color: #60a5fa;
             transform: translateX(4px);
         }
 
         .vm-card.mission:hover h3 {
-            color: var(--accent-green);
+            color: #a7f3d0;
         }
 
         /* Animated Eye Icon Styling (Vision) */
@@ -326,23 +356,23 @@
         }
 
         .eye-outline {
-            stroke: var(--dark-blue);
+            stroke: #60a5fa;
             transition: stroke 0.3s var(--ease-custom);
         }
 
         .eye-pupil {
-            fill: var(--primary-blue);
+            fill: #60a5fa;
             transform-origin: 16px 16px;
             animation: eyeScan 4s infinite ease-in-out;
         }
 
         .eye-iris {
-            stroke: var(--primary-blue);
+            stroke: #60a5fa;
             transition: stroke 0.3s var(--ease-custom);
         }
 
         .vm-card:hover .eye-outline {
-            stroke: var(--primary-blue);
+            stroke: #ffffff;
         }
 
         .vm-card:hover .eye-pupil {
@@ -365,26 +395,26 @@
         }
 
         .target-outer {
-            stroke: var(--dark-blue);
+            stroke: var(--accent-green);
             transform-origin: 16px 16px;
             transition: stroke 0.3s var(--ease-custom);
             animation: targetSpin 8s linear infinite;
         }
 
         .target-inner {
-            stroke: var(--accent-green);
+            stroke: #a7f3d0;
             transform-origin: 16px 16px;
             animation: targetPulse 2s ease-in-out infinite alternate;
         }
 
         .target-center {
-            fill: var(--accent-green);
+            fill: #a7f3d0;
             transform-origin: 16px 16px;
             animation: centerPulse 1.5s ease-in-out infinite alternate;
         }
 
         .vm-card.mission:hover .target-outer {
-            stroke: var(--accent-green);
+            stroke: #a7f3d0;
             animation-duration: 3s;
         }
 
@@ -406,7 +436,7 @@
         .vm-card p {
             font-size: 17px;
             line-height: 1.7;
-            color: var(--gray);
+            color: #cbd5e1;
         }
 
         @media (max-width: 900px) {
@@ -423,10 +453,9 @@
             }
         }
 
-        /* Services Grid Section - Updated to Black Background */
+        /* Services Grid Section */
         .section-padding {
-            padding: 80px 8%;
-            background-color: #000000;
+            padding: 0 8% 80px 8%;
             color: #ffffff;
         }
 
@@ -450,12 +479,12 @@
         }
 
         .category-title {
-            font-size: 20px;
+            font-size: 24px;
             color: #ffffff;
             font-weight: 700;
             border-bottom: 1px solid #222222;
             padding-bottom: 12px;
-            margin: 50px 0 30px 0;
+            margin: 70px 0 35px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -464,10 +493,10 @@
         }
 
         .category-tag {
-            font-size: 11px;
+            font-size: 12px;
             background-color: #1a1a1a;
             color: #60a5fa;
-            padding: 4px 12px;
+            padding: 6px 14px;
             border-radius: 12px;
             font-weight: 600;
             text-transform: uppercase;
@@ -482,32 +511,37 @@
             border-color: var(--primary-blue);
         }
 
+        /* Full-Width Full Page Cards Container */
         .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+            width: 100%;
         }
 
-        /* Interactive Service Cards with Side Image */
+        /* Full Page Interactive Service Cards */
         .card {
-            background: #111111;
+            background: rgba(17, 17, 17, 0.85);
+            backdrop-filter: blur(8px);
             border: 1px solid #222222;
-            padding: 30px;
-            border-top: 3px solid var(--primary-blue);
+            padding: 45px;
+            border-top: 4px solid var(--primary-blue);
             transition: var(--transition-smooth);
             position: relative;
             top: 0;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            align-items: stretch;
-            gap: 24px;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+            min-height: 380px;
         }
 
         .card:hover {
             top: -6px;
-            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.5);
-            border-top-width: 5px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            border-top-width: 6px;
         }
 
         .card.accent-green { border-top-color: var(--accent-green); }
@@ -520,16 +554,16 @@
         }
 
         .card h4 {
-            font-size: 19px;
+            font-size: 26px;
             color: #ffffff;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             font-weight: 600;
             transition: var(--transition-fast);
         }
 
         .card:hover h4 {
             color: #60a5fa;
-            transform: translateX(3px);
+            transform: translateX(4px);
         }
 
         .card ul {
@@ -538,12 +572,12 @@
         }
 
         .card ul li {
-            font-size: 14px;
+            font-size: 16px;
             color: #cbd5e1;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             position: relative;
-            padding-left: 20px;
-            line-height: 1.5;
+            padding-left: 24px;
+            line-height: 1.6;
             transition: var(--transition-fast);
         }
 
@@ -557,8 +591,8 @@
             left: 0;
             color: var(--primary-blue);
             font-weight: bold;
-            font-size: 18px;
-            line-height: 14px;
+            font-size: 22px;
+            line-height: 18px;
             transition: var(--transition-fast);
         }
 
@@ -566,15 +600,15 @@
             transform: scale(1.4);
         }
 
-        /* 20% Card Image Wrapper Styling */
+        /* Large Image Panel for Full-Page Layout */
         .card-image-wrapper {
-            flex: 0 0 20%;
-            min-width: 110px;
+            flex: 0 0 38%;
+            width: 38%;
+            height: 300px;
             border-radius: 4px;
             overflow: hidden;
             border: 1px solid #333333;
             background-color: #1a1a1a;
-            align-self: stretch;
             display: flex;
         }
 
@@ -592,14 +626,15 @@
         /* Retainer Table Micro-interactions */
         .table-responsive {
             overflow-x: auto;
-            background: #111111;
+            background: rgba(17, 17, 17, 0.85);
+            backdrop-filter: blur(8px);
             border: 1px solid #222222;
             margin-top: 25px;
             transition: var(--transition-smooth);
         }
 
         .table-responsive:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
         }
 
         .retainer-table {
@@ -646,7 +681,8 @@
         }
 
         .gap-audit-box {
-            background-color: #111111;
+            background-color: rgba(17, 17, 17, 0.85);
+            backdrop-filter: blur(8px);
             border-left: 4px solid var(--primary-blue);
             padding: 22px 28px;
             margin-top: 30px;
@@ -656,12 +692,12 @@
         }
 
         .gap-audit-box:hover {
-            background-color: #1a1a1a;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            background-color: rgba(26, 26, 26, 0.95);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
             border-left-width: 6px;
         }
 
-        /* Stats Bar - Updated to Green Background */
+        /* Stats Bar - Green Background */
         .stats {
             background-color: var(--accent-green);
             color: #ffffff;
@@ -747,14 +783,15 @@
             color: #64748b;
         }
 
-        @media (max-width: 650px) {
+        @media (max-width: 992px) {
             .card {
                 flex-direction: column-reverse;
                 align-items: stretch;
+                padding: 30px;
             }
             .card-image-wrapper {
                 width: 100%;
-                height: 160px;
+                height: 240px;
                 flex: none;
             }
         }
@@ -796,11 +833,10 @@
     </header>
 
     <!-- Vision & Mission -->
-    <section class="vision-mission" id="about">
+    <section class="vision-mission animated-bg" id="about">
         <div class="vm-grid">
             <div class="vm-card">
                 <div class="vm-header">
-                    <!-- Animated Eye SVG Icon -->
                     <svg class="eye-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path class="eye-outline" d="M2 16C2 16 7 6 16 6C25 6 30 16 30 16C30 16 25 26 16 26C7 26 2 16 2 16Z" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                         <circle class="eye-iris" cx="16" cy="16" r="6" stroke-width="2"/>
@@ -812,7 +848,6 @@
             </div>
             <div class="vm-card mission">
                 <div class="vm-header">
-                    <!-- Animated Target SVG Icon -->
                     <svg class="target-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle class="target-outer" cx="16" cy="16" r="13" stroke-width="2" stroke-dasharray="4 3"/>
                         <circle class="target-inner" cx="16" cy="16" r="8"/>
@@ -830,7 +865,7 @@
     </section>
 
     <!-- Services Section -->
-    <section class="section-padding">
+    <section class="section-padding animated-bg">
         <div class="section-header">
             <h2 class="section-title">Comprehensive Service Capabilities</h2>
             <p class="section-subtitle">Turnkey engineering, manufacturing, statutory compliance, and critical safety infrastructure.</p>
@@ -947,10 +982,10 @@
             <span class="category-tag">Decentralized Visual Safety</span>
         </div>
         <div class="card-grid">
-            <div class="card accent-purple" style="grid-column: 1 / -1;">
+            <div class="card accent-purple">
                 <div class="card-body">
                     <h4>Sub-5-Second Point-of-Origin Fire & Smoke Detection</h4>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                         <ul>
                             <li><strong>Zero New Hardware:</strong> Runs over existing CCTV cameras (Hikvision, CP Plus, Dahua) via local RTSP stream.</li>
                             <li><strong>Instant Multi-Alerts:</strong> 3-5 second WhatsApp photo alerts to 3-5 numbers + 100 dB on-site desktop siren.</li>
