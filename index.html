@@ -161,7 +161,7 @@
             transform: translateY(0) scale(0.98);
         }
 
-        /* Hero Banner with Custom Uploaded Background Image */
+        /* Hero Banner */
         .hero {
             background: linear-gradient(
                 90deg, 
@@ -292,19 +292,115 @@
             border-top-color: var(--accent-green);
         }
 
+        .vm-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
         .vm-card h3 {
             color: var(--dark-blue);
-            margin-bottom: 20px;
             font-size: 24px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: var(--transition-fast);
+            margin: 0;
         }
 
         .vm-card:hover h3 {
             color: var(--primary-blue);
             transform: translateX(4px);
+        }
+
+        .vm-card.mission:hover h3 {
+            color: var(--accent-green);
+        }
+
+        /* Animated Eye Icon Styling (Vision) */
+        .eye-icon {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .eye-outline {
+            stroke: var(--dark-blue);
+            transition: stroke 0.3s var(--ease-custom);
+        }
+
+        .eye-pupil {
+            fill: var(--primary-blue);
+            transform-origin: 16px 16px;
+            animation: eyeScan 4s infinite ease-in-out;
+        }
+
+        .eye-iris {
+            stroke: var(--primary-blue);
+            transition: stroke 0.3s var(--ease-custom);
+        }
+
+        .vm-card:hover .eye-outline {
+            stroke: var(--primary-blue);
+        }
+
+        .vm-card:hover .eye-pupil {
+            animation-duration: 2s;
+        }
+
+        @keyframes eyeScan {
+            0%, 100% { transform: translate(0, 0); }
+            20% { transform: translate(-3px, -1px); }
+            40% { transform: translate(3px, 1px); }
+            60% { transform: translate(2px, -2px); }
+            80% { transform: translate(-2px, 2px); }
+        }
+
+        /* Animated Target Icon Styling (Mission) */
+        .target-icon {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .target-outer {
+            stroke: var(--dark-blue);
+            transform-origin: 16px 16px;
+            transition: stroke 0.3s var(--ease-custom);
+            animation: targetSpin 8s linear infinite;
+        }
+
+        .target-inner {
+            stroke: var(--accent-green);
+            transform-origin: 16px 16px;
+            animation: targetPulse 2s ease-in-out infinite alternate;
+        }
+
+        .target-center {
+            fill: var(--accent-green);
+            transform-origin: 16px 16px;
+            animation: centerPulse 1.5s ease-in-out infinite alternate;
+        }
+
+        .vm-card.mission:hover .target-outer {
+            stroke: var(--accent-green);
+            animation-duration: 3s;
+        }
+
+        @keyframes targetSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes targetPulse {
+            0% { transform: scale(0.85); stroke-width: 1.5; }
+            100% { transform: scale(1.1); stroke-width: 2.5; }
+        }
+
+        @keyframes centerPulse {
+            0% { transform: scale(0.8); opacity: 0.7; }
+            100% { transform: scale(1.3); opacity: 1; }
         }
 
         .vm-card p {
@@ -330,6 +426,7 @@
         /* Services Grid Section */
         .section-padding {
             padding: 80px 8%;
+            color: var(--gray);
         }
 
         .section-header {
@@ -386,19 +483,24 @@
 
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
             gap: 30px;
         }
 
-        /* Interactive Service Cards */
+        /* Interactive Service Cards with Side Image */
         .card {
             background: #ffffff;
             border: 1px solid var(--border-color);
-            padding: 35px;
+            padding: 30px;
             border-top: 3px solid var(--primary-blue);
             transition: var(--transition-smooth);
             position: relative;
             top: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 24px;
         }
 
         .card:hover {
@@ -411,6 +513,10 @@
         .card.accent-amber { border-top-color: #d97706; }
         .card.accent-red { border-top-color: #dc2626; }
         .card.accent-purple { border-top-color: #7c3aed; }
+
+        .card-body {
+            flex: 1;
+        }
 
         .card h4 {
             font-size: 19px;
@@ -453,6 +559,29 @@
 
         .card:hover ul li::before {
             transform: scale(1.4);
+        }
+
+        /* 20% Card Image Wrapper Styling */
+        .card-image-wrapper {
+            flex: 0 0 20%;
+            min-width: 110px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background-color: var(--light-gray);
+            align-self: stretch;
+            display: flex;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.08);
         }
 
         /* Retainer Table Micro-interactions */
@@ -612,6 +741,18 @@
             font-size: 12px;
             color: #64748b;
         }
+
+        @media (max-width: 650px) {
+            .card {
+                flex-direction: column-reverse;
+                align-items: stretch;
+            }
+            .card-image-wrapper {
+                width: 100%;
+                height: 160px;
+                flex: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -636,7 +777,7 @@
         <a href="mailto:contact@motleygroup.com" class="btn-quote">Get A Quote</a>
     </nav>
 
-    <!-- Hero Section with Custom Background Image -->
+    <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
             <span class="hero-tag">Engineering Excellence & Compliance</span>
@@ -653,11 +794,31 @@
     <section class="vision-mission" id="about">
         <div class="vm-grid">
             <div class="vm-card">
-                <h3>Our Vision</h3>
+                <div class="vm-header">
+                    <!-- Animated Eye SVG Icon -->
+                    <svg class="eye-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="eye-outline" d="M2 16C2 16 7 6 16 6C25 6 30 16 30 16C30 16 25 26 16 26C7 26 2 16 2 16Z" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle class="eye-iris" cx="16" cy="16" r="6" stroke-width="2"/>
+                        <circle class="eye-pupil" cx="16" cy="16" r="3.5"/>
+                    </svg>
+                    <h3>Our Vision</h3>
+                </div>
                 <p>To be the most trusted integrated environmental engineering and critical safety infrastructure enterprise — delivering sustainable water manufacturing, zero-friction regulatory clearances, and smart early-warning safety technologies under one accountable shield.</p>
             </div>
             <div class="vm-card mission">
-                <h3>Our Mission</h3>
+                <div class="vm-header">
+                    <!-- Animated Target SVG Icon -->
+                    <svg class="target-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="target-outer" cx="16" cy="16" r="13" stroke-width="2" stroke-dasharray="4 3"/>
+                        <circle class="target-inner" cx="16" cy="16" r="8"/>
+                        <circle class="target-center" cx="16" cy="16" r="3"/>
+                        <line x1="16" y1="1" x2="16" y2="6" stroke="var(--accent-green)" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="16" y1="26" x2="16" y2="31" stroke="var(--accent-green)" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="1" y1="16" x2="6" y2="16" stroke="var(--accent-green)" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="26" y1="16" x2="31" y2="16" stroke="var(--accent-green)" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <h3>Our Mission</h3>
+                </div>
                 <p>To safeguard industrial and institutional infrastructure through high-efficiency in-house water fabrication (ETP/STP/RO/Filters), comprehensive statutory liaison (UPPCB/BMW/CMO), turnkey fire protection, and sub-5-second Edge AI safety surveillance.</p>
             </div>
         </div>
@@ -677,20 +838,31 @@
         </div>
         <div class="card-grid">
             <div class="card accent-green">
-                <h4>ETP & STP Plant Fabrication</h4>
-                <ul>
-                    <li><strong>Effluent Treatment Plants (ETP):</strong> In-house design, sizing, and MS/FRP fabrication tailored to industrial COD/BOD loads.</li>
-                    <li><strong>Sewage Treatment Plants (STP):</strong> Custom biological systems based on MBBR and SBR technology.</li>
-                    <li><strong>Turnkey Execution:</strong> Complete civil, electromechanical installation, biological seeding, and commissioning.</li>
-                </ul>
+                <div class="card-body">
+                    <h4>ETP & STP Plant Fabrication</h4>
+                    <ul>
+                        <li><strong>Effluent Treatment Plants (ETP):</strong> In-house design, sizing, and MS/FRP fabrication tailored to industrial COD/BOD loads.</li>
+                        <li><strong>Sewage Treatment Plants (STP):</strong> Custom biological systems based on MBBR and SBR technology.</li>
+                        <li><strong>Turnkey Execution:</strong> Complete civil, electromechanical installation, biological seeding, and commissioning.</li>
+                    </ul>
+                </div>
+                <div class="card-image-wrapper">
+                    <img src="etp_stp_plant.jpg" alt="ETP STP Plant" class="card-img">
+                </div>
             </div>
+
             <div class="card accent-green">
-                <h4>Filtration & Softener Systems</h4>
-                <ul>
-                    <li><strong>Industrial RO Plants:</strong> Heavy-duty Reverse Osmosis plants for process and dialysis-grade applications.</li>
-                    <li><strong>Water Softeners:</strong> Fully automatic softeners for low-hardness boiler feed and HVAC chillers.</li>
-                    <li><strong>Pre-Treatment Filters:</strong> Dual-Media, Pressure Sand Filters (PSF), and Activated Carbon Filters (ACF).</li>
-                </ul>
+                <div class="card-body">
+                    <h4>Filtration & Softener Systems</h4>
+                    <ul>
+                        <li><strong>Industrial RO Plants:</strong> Heavy-duty Reverse Osmosis plants for process and dialysis-grade applications.</li>
+                        <li><strong>Water Softeners:</strong> Fully automatic softeners for low-hardness boiler feed and HVAC chillers.</li>
+                        <li><strong>Pre-Treatment Filters:</strong> Dual-Media, Pressure Sand Filters (PSF), and Activated Carbon Filters (ACF).</li>
+                    </ul>
+                </div>
+                <div class="card-image-wrapper">
+                    <img src="ro_softener.jpg" alt="RO & Softener Systems" class="card-img">
+                </div>
             </div>
         </div>
 
@@ -701,20 +873,31 @@
         </div>
         <div class="card-grid">
             <div class="card accent-amber">
-                <h4>Pollution & Waste Clearances</h4>
-                <ul>
-                    <li><strong>UPPCB CTE & CTO:</strong> Consent to Establish and Consent to Operate Air/Water renewal processing.</li>
-                    <li><strong>Bio-Medical Waste (BMW):</strong> Authorization, barcoding setup, and annual compliance registers.</li>
-                    <li><strong>CGWA NOC:</strong> Central Ground Water Authority groundwater withdrawal processing.</li>
-                </ul>
+                <div class="card-body">
+                    <h4>Pollution & Waste Clearances</h4>
+                    <ul>
+                        <li><strong>UPPCB CTE & CTO:</strong> Consent to Establish and Consent to Operate Air/Water renewal processing.</li>
+                        <li><strong>Bio-Medical Waste (BMW):</strong> Authorization, barcoding setup, and annual compliance registers.</li>
+                        <li><strong>CGWA NOC:</strong> Central Ground Water Authority groundwater withdrawal processing.</li>
+                    </ul>
+                </div>
+                <div class="card-image-wrapper">
+                    <img src="pollution_clearance.jpg" alt="Pollution Approvals" class="card-img">
+                </div>
             </div>
+
             <div class="card accent-amber">
-                <h4>Institutional Licensing & Legal Support</h4>
-                <ul>
-                    <li><strong>CMO Registrations:</strong> Chief Medical Officer hospital registration renewals and documentation.</li>
-                    <li><strong>AERB Approvals:</strong> Radiation facility approvals for radiology and diagnostic equipment.</li>
-                    <li><strong>Notice Support:</strong> Dedicated liaison and representation for regulatory show-cause notices.</li>
-                </ul>
+                <div class="card-body">
+                    <h4>Institutional Licensing & Legal Support</h4>
+                    <ul>
+                        <li><strong>CMO Registrations:</strong> Chief Medical Officer hospital registration renewals and documentation.</li>
+                        <li><strong>AERB Approvals:</strong> Radiation facility approvals for radiology and diagnostic equipment.</li>
+                        <li><strong>Notice Support:</strong> Dedicated liaison and representation for regulatory show-cause notices.</li>
+                    </ul>
+                </div>
+                <div class="card-image-wrapper">
+                    <img src="licensing_legal.jpg" alt="Legal & Licensing Support" class="card-img">
+                </div>
             </div>
         </div>
 
@@ -725,20 +908,31 @@
         </div>
         <div class="card-grid">
             <div class="card accent-red">
-                <h4>Turnkey Fire Protection Systems</h4>
-                <ul>
-                    <li><strong>Fire Suppression:</strong> Hydrant piping, automatic sprinklers, and diesel booster pump room installation.</li>
-                    <li><strong>Gas Suppression:</strong> Clean-agent gas suppression systems for server rooms and LT electrical panels.</li>
-                    <li><strong>Statutory Fire NOC:</strong> Safety audits, flow testing, and staff evacuation mock drills.</li>
-                </ul>
+                <div class="card-body">
+                    <h4>Turnkey Fire Protection Systems</h4>
+                    <ul>
+                        <li><strong>Fire Suppression:</strong> Hydrant piping, automatic sprinklers, and diesel booster pump room installation.</li>
+                        <li><strong>Gas Suppression:</strong> Clean-agent gas suppression systems for server rooms and LT electrical panels.</li>
+                        <li><strong>Statutory Fire NOC:</strong> Safety audits, flow testing, and staff evacuation mock drills.</li>
+                    </ul>
+                </div>
+                <div class="card-image-wrapper">
+                    <img src="fire_protection.jpg" alt="Fire Protection Systems" class="card-img">
+                </div>
             </div>
+
             <div class="card accent-red">
-                <h4>FLIR Thermal & Power Audits</h4>
-                <ul>
-                    <li><strong>Infrared Thermography:</strong> Non-invasive FLIR thermal imaging of main LT panels, ICU/OT switchgears.</li>
-                    <li><strong>Early Hotspot Warning:</strong> Identifies loose connections before electrical fire outbreaks.</li>
-                    <li><strong>Electrical Certification:</strong> Earth-resistance testing (Ohms), phase-load balancing, and certification.</li>
-                </ul>
+                <div class="card-body">
+                    <h4>FLIR Thermal & Power Audits</h4>
+                    <ul>
+                        <li><strong>Infrared Thermography:</strong> Non-invasive FLIR thermal imaging of main LT panels, ICU/OT switchgears.</li>
+                        <li><strong>Early Hotspot Warning:</strong> Identifies loose connections before electrical fire outbreaks.</li>
+                        <li><strong>Electrical Certification:</strong> Earth-resistance testing (Ohms), phase-load balancing, and certification.</li>
+                    </ul>
+                </div>
+                <div class="card-image-wrapper">
+                    <img src="flir_thermal.jpg" alt="FLIR Thermal Inspection" class="card-img">
+                </div>
             </div>
         </div>
 
@@ -749,16 +943,21 @@
         </div>
         <div class="card-grid">
             <div class="card accent-purple" style="grid-column: 1 / -1;">
-                <h4>Sub-5-Second Point-of-Origin Fire & Smoke Detection</h4>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-                    <ul>
-                        <li><strong>Zero New Hardware:</strong> Runs over existing CCTV cameras (Hikvision, CP Plus, Dahua) via local RTSP stream.</li>
-                        <li><strong>Instant Multi-Alerts:</strong> 3-5 second WhatsApp photo alerts to 3-5 numbers + 100 dB on-site desktop siren.</li>
-                    </ul>
-                    <ul>
-                        <li><strong>100% Local Privacy:</strong> Video stays strictly on local LAN; zero cloud dependencies or bandwidth lag.</li>
-                        <li><strong>Smart Filtering:</strong> Eliminates false alarms (glare/stoves) with automated 9:00 AM daily heartbeat confirmation.</li>
-                    </ul>
+                <div class="card-body">
+                    <h4>Sub-5-Second Point-of-Origin Fire & Smoke Detection</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <ul>
+                            <li><strong>Zero New Hardware:</strong> Runs over existing CCTV cameras (Hikvision, CP Plus, Dahua) via local RTSP stream.</li>
+                            <li><strong>Instant Multi-Alerts:</strong> 3-5 second WhatsApp photo alerts to 3-5 numbers + 100 dB on-site desktop siren.</li>
+                        </ul>
+                        <ul>
+                            <li><strong>100% Local Privacy:</strong> Video stays strictly on local LAN; zero cloud dependencies or bandwidth lag.</li>
+                            <li><strong>Smart Filtering:</strong> Eliminates false alarms (glare/stoves) with automated 9:00 AM daily heartbeat confirmation.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-image-wrapper">
+                    <img src="edge_ai_vision.jpg" alt="Edge AI Vision" class="card-img">
                 </div>
             </div>
         </div>
