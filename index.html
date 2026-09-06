@@ -5,29 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motley Group - Global Industrial Solutions</title>
     <style>
-        /* CSS Reset & Variable Setup */
+        /* CSS Reset & Variable Setup (Tata.com Inspired Design System) */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
 
         :root {
-            --primary-navy: #1a2b4c;
+            --tata-blue: #00529b;
+            --tata-dark-blue: #002f6c;
+            --tata-black: #111111;
+            --tata-gray: #4a4a4a;
+            --tata-light-gray: #f4f6f8;
+            --tata-border: #e2e8f0;
             --accent-green: #2e7d32;
-            --accent-light-green: #4caf50;
-            --dark-bg: #0f172a;
-            --light-bg: #f8fafc;
-            --card-border: #e2e8f0;
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
+            
+            /* Tata Signature Easing Curves */
+            --ease-tata: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: all 0.25s var(--ease-tata);
+            --transition-smooth: all 0.4s var(--ease-tata);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            color: var(--text-dark);
+            color: var(--tata-black);
             line-height: 1.6;
-            background-color: var(--light-bg);
+            background-color: #ffffff;
+            -webkit-font-smoothing: antialiased;
         }
 
         a {
@@ -37,27 +46,43 @@
 
         /* Top Bar Contact Info */
         .top-bar {
-            background-color: var(--primary-navy);
+            background-color: var(--tata-dark-blue);
             color: #ffffff;
-            padding: 8px 8%;
+            padding: 10px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 13px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-weight: 400;
+            letter-spacing: 0.3px;
         }
 
         .top-bar-contact span {
-            margin-right: 20px;
+            margin-right: 24px;
+            display: inline-block;
+            transition: var(--transition-fast);
+        }
+
+        .top-bar-contact span:hover {
+            color: #b0cbef;
         }
 
         .top-bar-badge {
-            background-color: var(--accent-green);
-            padding: 2px 10px;
-            border-radius: 12px;
-            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-weight: 500;
             font-size: 11px;
             text-transform: uppercase;
+            letter-spacing: 0.8px;
+            transition: var(--transition-fast);
+            display: inline-block;
+        }
+
+        .top-bar-badge:hover {
+            border-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: scale(1.03);
         }
 
         /* Main Navigation */
@@ -66,22 +91,29 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 8%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 18px 8%;
+            border-bottom: 1px solid var(--tata-border);
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: var(--transition-fast);
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
+            cursor: pointer;
         }
 
         .logo-img {
-            height: 46px;
+            height: 42px;
             width: auto;
+            transition: var(--transition-smooth);
+        }
+
+        .logo-container:hover .logo-img {
+            transform: scale(1.05);
         }
 
         .logo-text {
@@ -90,200 +122,333 @@
         }
 
         .logo-title {
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--primary-navy);
-            letter-spacing: 0.5px;
-            line-height: 1.1;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--tata-dark-blue);
+            letter-spacing: 1.5px;
+            line-height: 1;
         }
 
         .logo-subtitle {
             font-size: 10px;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
+            color: var(--tata-gray);
+            letter-spacing: 1.2px;
             font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 3px;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 22px;
+            gap: 28px;
         }
 
         .nav-links li a {
-            font-weight: 600;
+            font-weight: 500;
             font-size: 14px;
-            color: var(--text-dark);
-            transition: color 0.3s;
+            color: var(--tata-black);
+            letter-spacing: 0.2px;
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.3s var(--ease-tata);
+        }
+
+        /* Tata Smooth Line Growing Effect */
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0%;
+            height: 2px;
+            background-color: var(--tata-blue);
+            transition: var(--transition-smooth);
+            transform: translateX(-50%);
         }
 
         .nav-links li a:hover {
-            color: var(--accent-green);
+            color: var(--tata-blue);
         }
 
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        /* Button Dynamics */
         .btn-quote {
-            background-color: var(--primary-navy);
+            background-color: var(--tata-blue);
             color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 700;
-            font-size: 14px;
-            transition: all 0.3s;
+            padding: 10px 22px;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: var(--transition-fast);
+            display: inline-block;
+            border: 1px solid var(--tata-blue);
+            cursor: pointer;
         }
 
         .btn-quote:hover {
-            background-color: var(--accent-green);
-            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+            background-color: var(--tata-dark-blue);
+            border-color: var(--tata-dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 82, 155, 0.25);
         }
 
-        /* Hero Banner */
+        .btn-quote:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Hero Banner (Tata Clean & Minimal) */
         .hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(26, 43, 76, 0.88)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-            color: #ffffff;
-            text-align: center;
-            padding: 90px 20px;
+            background-color: var(--tata-light-gray);
+            color: var(--tata-black);
+            padding: 100px 8%;
+            border-bottom: 1px solid var(--tata-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            color: var(--tata-blue);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            display: inline-block;
+            transition: var(--transition-smooth);
+        }
+
+        .hero:hover .hero-tag {
+            letter-spacing: 2px;
         }
 
         .hero h1 {
-            font-size: 40px;
-            font-weight: 800;
-            margin-bottom: 15px;
+            font-size: 44px;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--tata-black);
             letter-spacing: -0.5px;
+        }
+
+        .hero h1 strong {
+            font-weight: 700;
+            color: var(--tata-dark-blue);
         }
 
         .hero p {
             font-size: 18px;
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-            color: #cbd5e1;
+            color: var(--tata-gray);
+            margin-bottom: 35px;
+            font-weight: 400;
+            max-width: 750px;
+            line-height: 1.6;
         }
 
         .hero-buttons {
             display: flex;
-            justify-content: center;
-            gap: 15px;
+            gap: 16px;
         }
 
         .btn-secondary {
-            background-color: var(--accent-green);
-            color: #ffffff;
-            padding: 12px 24px;
-            border-radius: 5px;
-            font-weight: 700;
-            font-size: 14px;
+            border: 1px solid var(--tata-dark-blue);
+            color: var(--tata-dark-blue);
+            padding: 10px 22px;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: var(--transition-fast);
+            display: inline-block;
+            background: transparent;
         }
 
         .btn-secondary:hover {
-            background-color: #236327;
+            background-color: var(--tata-dark-blue);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 47, 108, 0.15);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0) scale(0.98);
         }
 
         /* Vision & Mission Banner */
         .vision-mission {
             background-color: #ffffff;
-            padding: 50px 8%;
-            border-bottom: 1px solid var(--card-border);
+            padding: 80px 8%;
+            border-bottom: 1px solid var(--tata-border);
         }
 
         .vm-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 40px;
+            align-items: stretch;
+            width: 100%;
         }
 
         .vm-card {
-            background-color: #f1f5f9;
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 5px solid var(--primary-navy);
+            background-color: var(--tata-light-gray);
+            padding: 48px 40px;
+            border-radius: 0px;
+            border-top: 4px solid var(--tata-blue);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            transition: var(--transition-smooth);
+            position: relative;
+            top: 0;
+        }
+
+        .vm-card:hover {
+            top: -6px;
+            background-color: #ffffff;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+            border-top-width: 6px;
         }
 
         .vm-card.mission {
-            border-left-color: var(--accent-green);
+            border-top-color: var(--accent-green);
         }
 
         .vm-card h3 {
-            color: var(--primary-navy);
-            margin-bottom: 10px;
-            font-size: 18px;
+            color: var(--tata-dark-blue);
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            transition: var(--transition-fast);
+        }
+
+        .vm-card:hover h3 {
+            color: var(--tata-blue);
+            transform: translateX(4px);
+        }
+
+        .vm-card p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--tata-gray);
+        }
+
+        @media (max-width: 900px) {
+            .vm-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Services Grid Section */
         .section-padding {
-            padding: 60px 8%;
+            padding: 80px 8%;
         }
 
         .section-header {
-            text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 55px;
         }
 
         .section-title {
-            font-size: 32px;
-            color: var(--primary-navy);
-            font-weight: 800;
-            margin-bottom: 8px;
+            font-size: 34px;
+            color: var(--tata-dark-blue);
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
         }
 
         .section-subtitle {
-            color: var(--text-muted);
+            color: var(--tata-gray);
             font-size: 16px;
             max-width: 700px;
-            margin: 0 auto;
+            font-weight: 400;
         }
 
         .category-title {
-            font-size: 22px;
-            color: var(--primary-navy);
-            border-bottom: 2px solid var(--primary-navy);
-            padding-bottom: 8px;
-            margin: 40px 0 20px 0;
+            font-size: 20px;
+            color: var(--tata-dark-blue);
+            font-weight: 700;
+            border-bottom: 1px solid var(--tata-border);
+            padding-bottom: 12px;
+            margin: 50px 0 30px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            letter-spacing: 0.5px;
+            transition: var(--transition-fast);
         }
 
         .category-tag {
-            font-size: 12px;
-            background-color: #dcfce7;
-            color: var(--accent-green);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-weight: 700;
+            font-size: 11px;
+            background-color: var(--tata-light-gray);
+            color: var(--tata-blue);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border: 1px solid var(--tata-border);
+            transition: var(--transition-fast);
+        }
+
+        .category-title:hover .category-tag {
+            background-color: var(--tata-blue);
+            color: #ffffff;
+            border-color: var(--tata-blue);
         }
 
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
         }
 
+        /* Tata Interactive Service Cards */
         .card {
             background: #ffffff;
-            border-radius: 8px;
-            border: 1px solid var(--card-border);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            padding: 25px;
-            border-top: 4px solid var(--primary-navy);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--tata-border);
+            padding: 35px;
+            border-top: 3px solid var(--tata-blue);
+            transition: var(--transition-smooth);
+            position: relative;
+            top: 0;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            top: -6px;
+            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+            border-top-width: 5px;
         }
 
         .card.accent-green { border-top-color: var(--accent-green); }
         .card.accent-amber { border-top-color: #d97706; }
         .card.accent-red { border-top-color: #dc2626; }
-        .card.accent-purple { border-top-color: #9333ea; }
+        .card.accent-purple { border-top-color: #7c3aed; }
 
         .card h4 {
-            font-size: 18px;
-            color: var(--primary-navy);
-            margin-bottom: 12px;
+            font-size: 19px;
+            color: var(--tata-dark-blue);
+            margin-bottom: 16px;
+            font-weight: 600;
+            transition: var(--transition-fast);
+        }
+
+        .card:hover h4 {
+            color: var(--tata-blue);
+            transform: translateX(3px);
         }
 
         .card ul {
@@ -293,28 +458,40 @@
 
         .card ul li {
             font-size: 14px;
-            color: #475569;
-            margin-bottom: 8px;
+            color: var(--tata-gray);
+            margin-bottom: 12px;
             position: relative;
-            padding-left: 18px;
+            padding-left: 20px;
+            line-height: 1.5;
+            transition: var(--transition-fast);
         }
 
         .card ul li::before {
-            content: "✓";
+            content: "•";
             position: absolute;
             left: 0;
-            color: var(--accent-green);
+            color: var(--tata-blue);
             font-weight: bold;
+            font-size: 18px;
+            line-height: 14px;
+            transition: var(--transition-fast);
         }
 
-        /* Retainer Packages Table */
+        .card:hover ul li::before {
+            transform: scale(1.4);
+        }
+
+        /* Retainer Table Micro-interactions */
         .table-responsive {
             overflow-x: auto;
             background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--card-border);
-            margin-top: 20px;
+            border: 1px solid var(--tata-border);
+            margin-top: 25px;
+            transition: var(--transition-smooth);
+        }
+
+        .table-responsive:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
         .retainer-table {
@@ -325,94 +502,141 @@
         }
 
         .retainer-table th {
-            background-color: var(--primary-navy);
-            color: #ffffff;
-            padding: 14px 18px;
+            background-color: var(--tata-light-gray);
+            color: var(--tata-dark-blue);
+            padding: 16px 20px;
             font-weight: 700;
             text-transform: uppercase;
             font-size: 12px;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
+            border-bottom: 2px solid var(--tata-border);
         }
 
         .retainer-table td {
-            padding: 14px 18px;
-            border-bottom: 1px solid var(--card-border);
-            color: #334155;
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--tata-border);
+            color: var(--tata-gray);
+            transition: var(--transition-fast);
         }
 
-        .retainer-table tr:nth-child(even) {
-            background-color: #f8fafc;
+        .retainer-table tr {
+            transition: var(--transition-fast);
+        }
+
+        .retainer-table tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .retainer-table tr:hover td {
+            color: var(--tata-black);
+            transform: translateX(2px);
         }
 
         .plan-badge {
             font-weight: 700;
-            color: var(--primary-navy);
+            color: var(--tata-dark-blue);
         }
 
         .gap-audit-box {
-            background-color: #eff6ff;
-            border-left: 5px solid #2563eb;
-            padding: 18px 25px;
-            border-radius: 0 8px 8px 0;
-            margin-top: 25px;
+            background-color: var(--tata-light-gray);
+            border-left: 4px solid var(--tata-blue);
+            padding: 22px 28px;
+            margin-top: 30px;
             font-size: 14px;
-            color: #1e40af;
+            color: var(--tata-black);
+            transition: var(--transition-smooth);
         }
 
-        /* Stats Bar */
+        .gap-audit-box:hover {
+            background-color: #ffffff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border-left-width: 6px;
+        }
+
+        /* Stats Bar (Tata Corporate Blue Interactive) */
         .stats {
-            background-color: var(--primary-navy);
+            background-color: var(--tata-dark-blue);
             color: #ffffff;
             display: flex;
             justify-content: space-around;
-            padding: 50px 8%;
+            padding: 60px 8%;
             text-align: center;
         }
 
+        .stat-item {
+            transition: var(--transition-smooth);
+            cursor: default;
+            padding: 10px;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
         .stat-item h2 {
-            font-size: 38px;
-            color: var(--accent-light-green);
-            font-weight: 800;
+            font-size: 42px;
+            color: #ffffff;
+            font-weight: 300;
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+            transition: var(--transition-fast);
+        }
+
+        .stat-item:hover h2 {
+            color: #60a5fa;
+            text-shadow: 0 0 15px rgba(96, 165, 250, 0.4);
         }
 
         .stat-item p {
-            font-size: 14px;
-            color: #cbd5e1;
+            font-size: 12px;
+            color: #b0cbef;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
 
         /* Footer */
         footer {
-            background-color: var(--dark-bg);
+            background-color: #0b1320;
             color: #94a3b8;
-            padding: 40px 8% 20px 8%;
+            padding: 60px 8% 30px 8%;
             font-size: 14px;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         .footer-col h4 {
             color: #ffffff;
-            font-size: 16px;
-            margin-bottom: 15px;
+            font-size: 15px;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 600;
         }
 
         .footer-col p, .footer-col li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 13px;
+            color: #a0aec0;
+            transition: var(--transition-fast);
+        }
+
+        .footer-col p:hover {
+            color: #ffffff;
+            transform: translateX(3px);
         }
 
         .footer-bottom {
             text-align: center;
-            border-top: 1px solid #1e293b;
-            padding-top: 20px;
+            border-top: 1px solid #1a2536;
+            padding-top: 25px;
             font-size: 12px;
+            color: #64748b;
         }
     </style>
 </head>
@@ -452,11 +676,14 @@
 
     <!-- Hero Section -->
     <header class="hero">
-        <h1>Uninterrupted Operations. Zero Compliance Friction. Total Safety.</h1>
-        <p>A single, accountable execution partner delivering in-house utility manufacturing, statutory clearances, precision diagnostics, and next-generation Edge AI hazard defense.</p>
-        <div class="hero-buttons">
-            <a href="mailto:contact@motleygroup.com" class="btn-quote">Request Proposal</a>
-            <a href="#retainers" class="btn-secondary">View Retainer Plans</a>
+        <div class="hero-content">
+            <span class="hero-tag">Engineering Excellence & Compliance</span>
+            <h1>Uninterrupted Operations. <strong>Zero Compliance Friction.</strong> Total Safety.</h1>
+            <p>A single, accountable execution partner delivering in-house utility manufacturing, statutory clearances, precision diagnostics, and next-generation Edge AI hazard defense.</p>
+            <div class="hero-buttons">
+                <a href="mailto:contact@motleygroup.com" class="btn-quote">Request Proposal</a>
+                <a href="#retainers" class="btn-secondary">View Retainer Plans</a>
+            </div>
         </div>
     </header>
 
@@ -561,7 +788,7 @@
         <div class="card-grid">
             <div class="card accent-purple" style="grid-column: 1 / -1;">
                 <h4>Sub-5-Second Point-of-Origin Fire & Smoke Detection</h4>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                     <ul>
                         <li><strong>Zero New Hardware:</strong> Runs over existing CCTV cameras (Hikvision, CP Plus, Dahua) via local RTSP stream.</li>
                         <li><strong>Instant Multi-Alerts:</strong> 3-5 second WhatsApp photo alerts to 3-5 numbers + 100 dB on-site desktop siren.</li>
@@ -624,7 +851,7 @@
             <p>Projects Delivered</p>
         </div>
         <div class="stat-item">
-            <h2>< 5 Sec</h2>
+            <h2>&lt; 5 Sec</h2>
             <p>Edge AI Hazard Alert</p>
         </div>
         <div class="stat-item">
