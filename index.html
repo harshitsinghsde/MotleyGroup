@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motley Group - Global Industrial Solutions</title>
+    <style>
+        /* CSS Reset & Variable Setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-navy: #1a2b4c;
+            --accent-green: #2e7d32;
+            --accent-light-green: #4caf50;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --card-border: #e2e8f0;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Top Bar Contact Info */
+        .top-bar {
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            padding: 8px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .top-bar-contact span {
+            margin-right: 20px;
+        }
+
+        .top-bar-badge {
+            background-color: var(--accent-green);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        /* Main Navigation */
+        .navbar {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 8%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 46px;
+            width: auto;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-navy);
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-subtitle {
+            font-size: 10px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 22px;
+        }
+
+        .nav-links li a {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-dark);
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent-green);
+        }
+
+        .btn-quote {
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .btn-quote:hover {
+            background-color: var(--accent-green);
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(26, 43, 76, 0.88)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            color: #ffffff;
+            text-align: center;
+            padding: 90px 20px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            color: #cbd5e1;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-green);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #236327;
+        }
+
+        /* Vision & Mission Banner */
+        .vision-mission {
+            background-color: #ffffff;
+            padding: 50px 8%;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .vm-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .vm-card {
+            background-color: #f1f5f9;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-navy);
+        }
+
+        .vm-card.mission {
+            border-left-color: var(--accent-green);
+        }
+
+        .vm-card h3 {
+            color: var(--primary-navy);
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Services Grid Section */
+        .section-padding {
+            padding: 60px 8%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: var(--primary-navy);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .category-title {
+            font-size: 22px;
+            color: var(--primary-navy);
+            border-bottom: 2px solid var(--primary-navy);
+            padding-bottom: 8px;
+            margin: 40px 0 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-tag {
+            font-size: 12px;
+            background-color: #dcfce7;
+            color: var(--accent-green);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            border-top: 4px solid var(--primary-navy);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card.accent-green { border-top-color: var(--accent-green); }
+        .card.accent-amber { border-top-color: #d97706; }
+        .card.accent-red { border-top-color: #dc2626; }
+        .card.accent-purple { border-top-color: #9333ea; }
+
+        .card h4 {
+            font-size: 18px;
+            color: var(--primary-navy);
+            margin-bottom: 12px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        /* Retainer Packages Table */
+        .table-responsive {
+            overflow-x: auto;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--card-border);
+            margin-top: 20px;
+        }
+
+        .retainer-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .retainer-table th {
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            padding: 14px 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .retainer-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--card-border);
+            color: #334155;
+        }
+
+        .retainer-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .plan-badge {
+            font-weight: 700;
+            color: var(--primary-navy);
+        }
+
+        .gap-audit-box {
+            background-color: #eff6ff;
+            border-left: 5px solid #2563eb;
+            padding: 18px 25px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 25px;
+            font-size: 14px;
+            color: #1e40af;
+        }
+
+        /* Stats Bar */
+        .stats {
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 8%;
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 38px;
+            color: var(--accent-light-green);
+            font-weight: 800;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: #94a3b8;
+            padding: 40px 8% 20px 8%;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-col p, .footer-col li {
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #1e293b;
+            padding-top: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Contact Bar -->
+    <div class="top-bar">
+        <div class="top-bar-contact">
+            <span>📍 HQ: Kanpur Nagar, Uttar Pradesh</span>
+            <span>📞 Tech Lead (Rahul Singh): +91-8299288481</span>
+            <span>✉️ contact@motleygroup.com</span>
+        </div>
+        <div>
+            <span class="top-bar-badge">Zero Compliance Friction</span>
+        </div>
+    </div>
+
+    <!-- Main Header Navbar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="MotleyGroup_logo.png" alt="MotleyGroup Logo" class="logo-img">
+            <div class="logo-text">
+                <span class="logo-title">MOTLEY GROUP</span>
+                <span class="logo-subtitle">Global Industrial Solutions</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#water">Water Treatment</a></li>
+            <li><a href="#compliance">Statutory Clearances</a></li>
+            <li><a href="#safety">Fire & Thermal</a></li>
+            <li><a href="#ai">Edge AI Vision</a></li>
+            <li><a href="#retainers">Retainer Plans</a></li>
+        </ul>
+        <a href="mailto:contact@motleygroup.com" class="btn-quote">Get A Quote</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Uninterrupted Operations. Zero Compliance Friction. Total Safety.</h1>
+        <p>A single, accountable execution partner delivering in-house utility manufacturing, statutory clearances, precision diagnostics, and next-generation Edge AI hazard defense.</p>
+        <div class="hero-buttons">
+            <a href="mailto:contact@motleygroup.com" class="btn-quote">Request Proposal</a>
+            <a href="#retainers" class="btn-secondary">View Retainer Plans</a>
+        </div>
+    </header>
+
+    <!-- Vision & Mission -->
+    <section class="vision-mission" id="about">
+        <div class="vm-grid">
+            <div class="vm-card">
+                <h3>Our Vision</h3>
+                <p>To be the most trusted integrated environmental engineering and critical safety infrastructure enterprise — delivering sustainable water manufacturing, zero-friction regulatory clearances, and smart early-warning safety technologies under one accountable shield.</p>
+            </div>
+            <div class="vm-card mission">
+                <h3>Our Mission</h3>
+                <p>To safeguard industrial and institutional infrastructure through high-efficiency in-house water fabrication (ETP/STP/RO/Filters), comprehensive statutory liaison (UPPCB/BMW/CMO), turnkey fire protection, and sub-5-second Edge AI safety surveillance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding">
+        <div class="section-header">
+            <h2 class="section-title">Comprehensive Service Capabilities</h2>
+            <p class="section-subtitle">Turnkey engineering, manufacturing, statutory compliance, and critical safety infrastructure.</p>
+        </div>
+
+        <!-- Division 1 -->
+        <div class="category-title" id="water">
+            <span>1. Water & Wastewater Treatment Engineering</span>
+            <span class="category-tag">In-House Manufacturing</span>
+        </div>
+        <div class="card-grid">
+            <div class="card accent-green">
+                <h4>ETP & STP Plant Fabrication</h4>
+                <ul>
+                    <li><strong>Effluent Treatment Plants (ETP):</strong> In-house design, sizing, and MS/FRP fabrication tailored to industrial COD/BOD loads.</li>
+                    <li><strong>Sewage Treatment Plants (STP):</strong> Custom biological systems based on MBBR and SBR technology.</li>
+                    <li><strong>Turnkey Execution:</strong> Complete civil, electromechanical installation, biological seeding, and commissioning.</li>
+                </ul>
+            </div>
+            <div class="card accent-green">
+                <h4>Filtration & Softener Systems</h4>
+                <ul>
+                    <li><strong>Industrial RO Plants:</strong> Heavy-duty Reverse Osmosis plants for process and dialysis-grade applications.</li>
+                    <li><strong>Water Softeners:</strong> Fully automatic softeners for low-hardness boiler feed and HVAC chillers.</li>
+                    <li><strong>Pre-Treatment Filters:</strong> Dual-Media, Pressure Sand Filters (PSF), and Activated Carbon Filters (ACF).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Division 2 -->
+        <div class="category-title" id="compliance">
+            <span>2. Statutory Approvals & Environmental Clearances</span>
+            <span class="category-tag">Compliance & Liaison</span>
+        </div>
+        <div class="card-grid">
+            <div class="card accent-amber">
+                <h4>Pollution & Waste Clearances</h4>
+                <ul>
+                    <li><strong>UPPCB CTE & CTO:</strong> Consent to Establish and Consent to Operate Air/Water renewal processing.</li>
+                    <li><strong>Bio-Medical Waste (BMW):</strong> Authorization, barcoding setup, and annual compliance registers.</li>
+                    <li><strong>CGWA NOC:</strong> Central Ground Water Authority groundwater withdrawal processing.</li>
+                </ul>
+            </div>
+            <div class="card accent-amber">
+                <h4>Institutional Licensing & Legal Support</h4>
+                <ul>
+                    <li><strong>CMO Registrations:</strong> Chief Medical Officer hospital registration renewals and documentation.</li>
+                    <li><strong>AERB Approvals:</strong> Radiation facility approvals for radiology and diagnostic equipment.</li>
+                    <li><strong>Notice Support:</strong> Dedicated liaison and representation for regulatory show-cause notices.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Division 3 -->
+        <div class="category-title" id="safety">
+            <span>3. Fire Protection & Electrical Thermal Diagnostics</span>
+            <span class="category-tag">Critical Safety</span>
+        </div>
+        <div class="card-grid">
+            <div class="card accent-red">
+                <h4>Turnkey Fire Protection Systems</h4>
+                <ul>
+                    <li><strong>Fire Suppression:</strong> Hydrant piping, automatic sprinklers, and diesel booster pump room installation.</li>
+                    <li><strong>Gas Suppression:</strong> Clean-agent gas suppression systems for server rooms and LT electrical panels.</li>
+                    <li><strong>Statutory Fire NOC:</strong> Safety audits, flow testing, and staff evacuation mock drills.</li>
+                </ul>
+            </div>
+            <div class="card accent-red">
+                <h4>FLIR Thermal & Power Audits</h4>
+                <ul>
+                    <li><strong>Infrared Thermography:</strong> Non-invasive FLIR thermal imaging of main LT panels, ICU/OT switchgears.</li>
+                    <li><strong>Early Hotspot Warning:</strong> Identifies loose connections before electrical fire outbreaks.</li>
+                    <li><strong>Electrical Certification:</strong> Earth-resistance testing (Ohms), phase-load balancing, and certification.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Division 4 -->
+        <div class="category-title" id="ai">
+            <span>4. Edge AI Vision Labs</span>
+            <span class="category-tag">Decentralized Visual Safety</span>
+        </div>
+        <div class="card-grid">
+            <div class="card accent-purple" style="grid-column: 1 / -1;">
+                <h4>Sub-5-Second Point-of-Origin Fire & Smoke Detection</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+                    <ul>
+                        <li><strong>Zero New Hardware:</strong> Runs over existing CCTV cameras (Hikvision, CP Plus, Dahua) via local RTSP stream.</li>
+                        <li><strong>Instant Multi-Alerts:</strong> 3-5 second WhatsApp photo alerts to 3-5 numbers + 100 dB on-site desktop siren.</li>
+                    </ul>
+                    <ul>
+                        <li><strong>100% Local Privacy:</strong> Video stays strictly on local LAN; zero cloud dependencies or bandwidth lag.</li>
+                        <li><strong>Smart Filtering:</strong> Eliminates false alarms (glare/stoves) with automated 9:00 AM daily heartbeat confirmation.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Division 5 -->
+        <div class="category-title" id="retainers">
+            <span>5. Annual Infrastructure & Compliance Retainer Packages</span>
+            <span class="category-tag">Retainer Plans</span>
+        </div>
+        <div class="table-responsive">
+            <table class="retainer-table">
+                <thead>
+                    <tr>
+                        <th>Plan Tier</th>
+                        <th>Target Facility</th>
+                        <th>Testing & Inspection Quota</th>
+                        <th>Statutory Scope Included</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="plan-badge">Hospital Shield</td>
+                        <td>30–50 Bed Nursing Homes</td>
+                        <td>4 NABL Tests, 2 STP/ETP Audits, 1 FLIR Scan, 1 Fire NOC Audit</td>
+                        <td>CTE/CTO, BMW & CMO Assistance + Notice Representation</td>
+                    </tr>
+                    <tr>
+                        <td class="plan-badge">Hospital Fortress</td>
+                        <td>50–150 Bed Multispecialty</td>
+                        <td>12 NABL Tests (Monthly), 4 ETP/STP Audits, 2 FLIR Scans, 2 Fire Audits</td>
+                        <td>Complete Regulatory Liaison + Unlimited Inspection Representation</td>
+                    </tr>
+                    <tr>
+                        <td class="plan-badge">Hospital Vault</td>
+                        <td>150+ Bed SuperSpecialty</td>
+                        <td>24 NABL Tests, 12 ETP/STP Audits, 4 FLIR Scans, 2 Fire Audits</td>
+                        <td>Comprehensive Full-Year Protection + Turnkey Remediation Support</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="gap-audit-box">
+            <strong>Zero-Risk Gap Audit:</strong> Motley Group provides a complimentary 25-point infrastructure and safety review before onboarding to evaluate utility health and regulatory standing.
+        </div>
+    </section>
+
+    <!-- Key Metrics Stats Bar -->
+    <section class="stats">
+        <div class="stat-item">
+            <h2>500+</h2>
+            <p>Projects Delivered</p>
+        </div>
+        <div class="stat-item">
+            <h2>< 5 Sec</h2>
+            <p>Edge AI Hazard Alert</p>
+        </div>
+        <div class="stat-item">
+            <h2>100%</h2>
+            <p>Compliance Assurance</p>
+        </div>
+        <div class="stat-item">
+            <h2>10+ Yrs</h2>
+            <p>Technical Expertise</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>MOTLEY GROUP</h4>
+                <p>Global Industrial Solutions</p>
+                <p>Delivering sustainable water manufacturing, regulatory clearances, and smart safety infrastructure.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <p>📍 Kanpur Nagar, Uttar Pradesh</p>
+                <p>📞 Rahul Singh: +91-8299288481</p>
+                <p>✉️ contact@motleygroup.com</p>
+                <p>🌐 www.motleygroup.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Key Solutions</h4>
+                <p>• ETP / STP / RO Systems</p>
+                <p>• UPPCB, BMW & CGWA Clearances</p>
+                <p>• Turnkey Fire Protection & FLIR</p>
+                <p>• Edge AI Visual Fire Detection</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MotleyGroup Global Industrial Solutions. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
