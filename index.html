@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motley Group - Global Industrial Solutions</title>
     <style>
-        /* CSS Reset & Variable Setup (Tata.com Inspired Design System) */
+        /* CSS Reset & Variable Setup */
         * {
             margin: 0;
             padding: 0;
@@ -14,18 +14,18 @@
         }
 
         :root {
-            --tata-blue: #00529b;
-            --tata-dark-blue: #002f6c;
-            --tata-black: #111111;
-            --tata-gray: #4a4a4a;
-            --tata-light-gray: #f4f6f8;
-            --tata-border: #e2e8f0;
+            --primary-blue: #00529b;
+            --dark-blue: #002f6c;
+            --black: #111111;
+            --gray: #4a4a4a;
+            --light-gray: #f4f6f8;
+            --border-color: #e2e8f0;
             --accent-green: #2e7d32;
             
-            /* Tata Signature Easing Curves */
-            --ease-tata: cubic-bezier(0.16, 1, 0.3, 1);
-            --transition-fast: all 0.25s var(--ease-tata);
-            --transition-smooth: all 0.4s var(--ease-tata);
+            /* Signature Easing Curves */
+            --ease-custom: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: all 0.25s var(--ease-custom);
+            --transition-smooth: all 0.4s var(--ease-custom);
         }
 
         html {
@@ -33,7 +33,7 @@
         }
 
         body {
-            color: var(--tata-black);
+            color: var(--black);
             line-height: 1.6;
             background-color: #ffffff;
             -webkit-font-smoothing: antialiased;
@@ -44,8 +44,6 @@
             color: inherit;
         }
 
-
-
         /* Main Navigation */
         .navbar {
             background-color: #ffffff;
@@ -53,7 +51,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 18px 8%;
-            border-bottom: 1px solid var(--tata-border);
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -85,14 +83,14 @@
         .logo-title {
             font-size: 22px;
             font-weight: 700;
-            color: var(--tata-dark-blue);
+            color: var(--dark-blue);
             letter-spacing: 1.5px;
             line-height: 1;
         }
 
         .logo-subtitle {
             font-size: 10px;
-            color: var(--tata-gray);
+            color: var(--gray);
             letter-spacing: 1.2px;
             font-weight: 600;
             text-transform: uppercase;
@@ -108,14 +106,14 @@
         .nav-links li a {
             font-weight: 500;
             font-size: 14px;
-            color: var(--tata-black);
+            color: var(--black);
             letter-spacing: 0.2px;
             position: relative;
             padding-bottom: 4px;
-            transition: color 0.3s var(--ease-tata);
+            transition: color 0.3s var(--ease-custom);
         }
 
-        /* Tata Smooth Line Growing Effect */
+        /* Smooth Line Growing Effect */
         .nav-links li a::after {
             content: '';
             position: absolute;
@@ -123,13 +121,13 @@
             left: 50%;
             width: 0%;
             height: 2px;
-            background-color: var(--tata-blue);
+            background-color: var(--primary-blue);
             transition: var(--transition-smooth);
             transform: translateX(-50%);
         }
 
         .nav-links li a:hover {
-            color: var(--tata-blue);
+            color: var(--primary-blue);
         }
 
         .nav-links li a:hover::after {
@@ -138,7 +136,7 @@
 
         /* Button Dynamics */
         .btn-quote {
-            background-color: var(--tata-blue);
+            background-color: var(--primary-blue);
             color: #ffffff;
             padding: 10px 22px;
             border-radius: 2px;
@@ -148,13 +146,13 @@
             text-transform: uppercase;
             transition: var(--transition-fast);
             display: inline-block;
-            border: 1px solid var(--tata-blue);
+            border: 1px solid var(--primary-blue);
             cursor: pointer;
         }
 
         .btn-quote:hover {
-            background-color: var(--tata-dark-blue);
-            border-color: var(--tata-dark-blue);
+            background-color: var(--dark-blue);
+            border-color: var(--dark-blue);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 82, 155, 0.25);
         }
@@ -163,12 +161,18 @@
             transform: translateY(0) scale(0.98);
         }
 
-        /* Hero Banner (Tata Clean & Minimal) */
+        /* Hero Banner with Custom Uploaded Background Image */
         .hero {
-            background-color: var(--tata-light-gray);
-            color: var(--tata-black);
-            padding: 100px 8%;
-            border-bottom: 1px solid var(--tata-border);
+            background: linear-gradient(
+                90deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(255, 255, 255, 0.88) 50%, 
+                rgba(255, 255, 255, 0.3) 100%
+            ), 
+            url('WhatsApp Image 2026-09-06 at 19.53.40 (1).jpeg') center/cover no-repeat;
+            color: var(--black);
+            padding: 120px 8%;
+            border-bottom: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
         }
@@ -180,7 +184,7 @@
         }
 
         .hero-tag {
-            color: var(--tata-blue);
+            color: var(--primary-blue);
             font-weight: 600;
             font-size: 13px;
             text-transform: uppercase;
@@ -199,18 +203,18 @@
             font-weight: 300;
             line-height: 1.2;
             margin-bottom: 20px;
-            color: var(--tata-black);
+            color: var(--black);
             letter-spacing: -0.5px;
         }
 
         .hero h1 strong {
             font-weight: 700;
-            color: var(--tata-dark-blue);
+            color: var(--dark-blue);
         }
 
         .hero p {
             font-size: 18px;
-            color: var(--tata-gray);
+            color: var(--gray);
             margin-bottom: 35px;
             font-weight: 400;
             max-width: 750px;
@@ -223,8 +227,8 @@
         }
 
         .btn-secondary {
-            border: 1px solid var(--tata-dark-blue);
-            color: var(--tata-dark-blue);
+            border: 1px solid var(--dark-blue);
+            color: var(--dark-blue);
             padding: 10px 22px;
             border-radius: 2px;
             font-weight: 600;
@@ -233,11 +237,12 @@
             text-transform: uppercase;
             transition: var(--transition-fast);
             display: inline-block;
-            background: transparent;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
         }
 
         .btn-secondary:hover {
-            background-color: var(--tata-dark-blue);
+            background-color: var(--dark-blue);
             color: #ffffff;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 47, 108, 0.15);
@@ -251,7 +256,7 @@
         .vision-mission {
             background-color: #ffffff;
             padding: 80px 8%;
-            border-bottom: 1px solid var(--tata-border);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .vm-grid {
@@ -263,10 +268,10 @@
         }
 
         .vm-card {
-            background-color: var(--tata-light-gray);
+            background-color: var(--light-gray);
             padding: 48px 40px;
             border-radius: 0px;
-            border-top: 4px solid var(--tata-blue);
+            border-top: 4px solid var(--primary-blue);
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -288,7 +293,7 @@
         }
 
         .vm-card h3 {
-            color: var(--tata-dark-blue);
+            color: var(--dark-blue);
             margin-bottom: 20px;
             font-size: 24px;
             font-weight: 700;
@@ -298,19 +303,27 @@
         }
 
         .vm-card:hover h3 {
-            color: var(--tata-blue);
+            color: var(--primary-blue);
             transform: translateX(4px);
         }
 
         .vm-card p {
             font-size: 17px;
             line-height: 1.7;
-            color: var(--tata-gray);
+            color: var(--gray);
         }
 
         @media (max-width: 900px) {
             .vm-grid {
                 grid-template-columns: 1fr;
+            }
+            .hero {
+                background: linear-gradient(
+                    180deg, 
+                    rgba(255, 255, 255, 0.95) 0%, 
+                    rgba(255, 255, 255, 0.85) 100%
+                ), 
+                url('WhatsApp Image 2026-09-06 at 19.53.40 (1).jpeg') center/cover no-repeat;
             }
         }
 
@@ -325,14 +338,14 @@
 
         .section-title {
             font-size: 34px;
-            color: var(--tata-dark-blue);
+            color: var(--dark-blue);
             font-weight: 300;
             letter-spacing: -0.5px;
             margin-bottom: 10px;
         }
 
         .section-subtitle {
-            color: var(--tata-gray);
+            color: var(--gray);
             font-size: 16px;
             max-width: 700px;
             font-weight: 400;
@@ -340,9 +353,9 @@
 
         .category-title {
             font-size: 20px;
-            color: var(--tata-dark-blue);
+            color: var(--dark-blue);
             font-weight: 700;
-            border-bottom: 1px solid var(--tata-border);
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 12px;
             margin: 50px 0 30px 0;
             display: flex;
@@ -354,21 +367,21 @@
 
         .category-tag {
             font-size: 11px;
-            background-color: var(--tata-light-gray);
-            color: var(--tata-blue);
+            background-color: var(--light-gray);
+            color: var(--primary-blue);
             padding: 4px 12px;
             border-radius: 12px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            border: 1px solid var(--tata-border);
+            border: 1px solid var(--border-color);
             transition: var(--transition-fast);
         }
 
         .category-title:hover .category-tag {
-            background-color: var(--tata-blue);
+            background-color: var(--primary-blue);
             color: #ffffff;
-            border-color: var(--tata-blue);
+            border-color: var(--primary-blue);
         }
 
         .card-grid {
@@ -377,12 +390,12 @@
             gap: 30px;
         }
 
-        /* Tata Interactive Service Cards */
+        /* Interactive Service Cards */
         .card {
             background: #ffffff;
-            border: 1px solid var(--tata-border);
+            border: 1px solid var(--border-color);
             padding: 35px;
-            border-top: 3px solid var(--tata-blue);
+            border-top: 3px solid var(--primary-blue);
             transition: var(--transition-smooth);
             position: relative;
             top: 0;
@@ -401,14 +414,14 @@
 
         .card h4 {
             font-size: 19px;
-            color: var(--tata-dark-blue);
+            color: var(--dark-blue);
             margin-bottom: 16px;
             font-weight: 600;
             transition: var(--transition-fast);
         }
 
         .card:hover h4 {
-            color: var(--tata-blue);
+            color: var(--primary-blue);
             transform: translateX(3px);
         }
 
@@ -419,7 +432,7 @@
 
         .card ul li {
             font-size: 14px;
-            color: var(--tata-gray);
+            color: var(--gray);
             margin-bottom: 12px;
             position: relative;
             padding-left: 20px;
@@ -431,7 +444,7 @@
             content: "•";
             position: absolute;
             left: 0;
-            color: var(--tata-blue);
+            color: var(--primary-blue);
             font-weight: bold;
             font-size: 18px;
             line-height: 14px;
@@ -446,7 +459,7 @@
         .table-responsive {
             overflow-x: auto;
             background: #ffffff;
-            border: 1px solid var(--tata-border);
+            border: 1px solid var(--border-color);
             margin-top: 25px;
             transition: var(--transition-smooth);
         }
@@ -463,20 +476,20 @@
         }
 
         .retainer-table th {
-            background-color: var(--tata-light-gray);
-            color: var(--tata-dark-blue);
+            background-color: var(--light-gray);
+            color: var(--dark-blue);
             padding: 16px 20px;
             font-weight: 700;
             text-transform: uppercase;
             font-size: 12px;
             letter-spacing: 0.8px;
-            border-bottom: 2px solid var(--tata-border);
+            border-bottom: 2px solid var(--border-color);
         }
 
         .retainer-table td {
             padding: 18px 20px;
-            border-bottom: 1px solid var(--tata-border);
-            color: var(--tata-gray);
+            border-bottom: 1px solid var(--border-color);
+            color: var(--gray);
             transition: var(--transition-fast);
         }
 
@@ -489,22 +502,22 @@
         }
 
         .retainer-table tr:hover td {
-            color: var(--tata-black);
+            color: var(--black);
             transform: translateX(2px);
         }
 
         .plan-badge {
             font-weight: 700;
-            color: var(--tata-dark-blue);
+            color: var(--dark-blue);
         }
 
         .gap-audit-box {
-            background-color: var(--tata-light-gray);
-            border-left: 4px solid var(--tata-blue);
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--primary-blue);
             padding: 22px 28px;
             margin-top: 30px;
             font-size: 14px;
-            color: var(--tata-black);
+            color: var(--black);
             transition: var(--transition-smooth);
         }
 
@@ -514,9 +527,9 @@
             border-left-width: 6px;
         }
 
-        /* Stats Bar (Tata Corporate Blue Interactive) */
+        /* Stats Bar */
         .stats {
-            background-color: var(--tata-dark-blue);
+            background-color: var(--dark-blue);
             color: #ffffff;
             display: flex;
             justify-content: space-around;
@@ -603,8 +616,6 @@
 </head>
 <body>
 
-
-
     <!-- Main Header Navbar -->
     <nav class="navbar">
         <div class="logo-container">
@@ -625,7 +636,7 @@
         <a href="mailto:contact@motleygroup.com" class="btn-quote">Get A Quote</a>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Custom Background Image -->
     <header class="hero">
         <div class="hero-content">
             <span class="hero-tag">Engineering Excellence & Compliance</span>
