@@ -423,10 +423,11 @@
             }
         }
 
-        /* Services Grid Section */
+        /* Services Grid Section - Updated to Black Background */
         .section-padding {
             padding: 80px 8%;
-            color: var(--gray);
+            background-color: #000000;
+            color: #ffffff;
         }
 
         .section-header {
@@ -435,14 +436,14 @@
 
         .section-title {
             font-size: 34px;
-            color: var(--dark-blue);
+            color: #ffffff;
             font-weight: 300;
             letter-spacing: -0.5px;
             margin-bottom: 10px;
         }
 
         .section-subtitle {
-            color: var(--gray);
+            color: #a0aec0;
             font-size: 16px;
             max-width: 700px;
             font-weight: 400;
@@ -450,9 +451,9 @@
 
         .category-title {
             font-size: 20px;
-            color: var(--dark-blue);
+            color: #ffffff;
             font-weight: 700;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid #222222;
             padding-bottom: 12px;
             margin: 50px 0 30px 0;
             display: flex;
@@ -464,14 +465,14 @@
 
         .category-tag {
             font-size: 11px;
-            background-color: var(--light-gray);
-            color: var(--primary-blue);
+            background-color: #1a1a1a;
+            color: #60a5fa;
             padding: 4px 12px;
             border-radius: 12px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            border: 1px solid var(--border-color);
+            border: 1px solid #333333;
             transition: var(--transition-fast);
         }
 
@@ -489,8 +490,8 @@
 
         /* Interactive Service Cards with Side Image */
         .card {
-            background: #ffffff;
-            border: 1px solid var(--border-color);
+            background: #111111;
+            border: 1px solid #222222;
             padding: 30px;
             border-top: 3px solid var(--primary-blue);
             transition: var(--transition-smooth);
@@ -505,7 +506,7 @@
 
         .card:hover {
             top: -6px;
-            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.5);
             border-top-width: 5px;
         }
 
@@ -520,14 +521,14 @@
 
         .card h4 {
             font-size: 19px;
-            color: var(--dark-blue);
+            color: #ffffff;
             margin-bottom: 16px;
             font-weight: 600;
             transition: var(--transition-fast);
         }
 
         .card:hover h4 {
-            color: var(--primary-blue);
+            color: #60a5fa;
             transform: translateX(3px);
         }
 
@@ -538,12 +539,16 @@
 
         .card ul li {
             font-size: 14px;
-            color: var(--gray);
+            color: #cbd5e1;
             margin-bottom: 12px;
             position: relative;
             padding-left: 20px;
             line-height: 1.5;
             transition: var(--transition-fast);
+        }
+
+        .card ul li strong {
+            color: #ffffff;
         }
 
         .card ul li::before {
@@ -567,8 +572,8 @@
             min-width: 110px;
             border-radius: 4px;
             overflow: hidden;
-            border: 1px solid var(--border-color);
-            background-color: var(--light-gray);
+            border: 1px solid #333333;
+            background-color: #1a1a1a;
             align-self: stretch;
             display: flex;
         }
@@ -587,14 +592,14 @@
         /* Retainer Table Micro-interactions */
         .table-responsive {
             overflow-x: auto;
-            background: #ffffff;
-            border: 1px solid var(--border-color);
+            background: #111111;
+            border: 1px solid #222222;
             margin-top: 25px;
             transition: var(--transition-smooth);
         }
 
         .table-responsive:hover {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
 
         .retainer-table {
@@ -605,20 +610,20 @@
         }
 
         .retainer-table th {
-            background-color: var(--light-gray);
-            color: var(--dark-blue);
+            background-color: #1a1a1a;
+            color: #ffffff;
             padding: 16px 20px;
             font-weight: 700;
             text-transform: uppercase;
             font-size: 12px;
             letter-spacing: 0.8px;
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 2px solid #333333;
         }
 
         .retainer-table td {
             padding: 18px 20px;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--gray);
+            border-bottom: 1px solid #222222;
+            color: #cbd5e1;
             transition: var(--transition-fast);
         }
 
@@ -627,38 +632,38 @@
         }
 
         .retainer-table tr:hover {
-            background-color: #f1f5f9;
+            background-color: #1e293b;
         }
 
         .retainer-table tr:hover td {
-            color: var(--black);
+            color: #ffffff;
             transform: translateX(2px);
         }
 
         .plan-badge {
             font-weight: 700;
-            color: var(--dark-blue);
+            color: #60a5fa;
         }
 
         .gap-audit-box {
-            background-color: var(--light-gray);
+            background-color: #111111;
             border-left: 4px solid var(--primary-blue);
             padding: 22px 28px;
             margin-top: 30px;
             font-size: 14px;
-            color: var(--black);
+            color: #ffffff;
             transition: var(--transition-smooth);
         }
 
         .gap-audit-box:hover {
-            background-color: #ffffff;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            background-color: #1a1a1a;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             border-left-width: 6px;
         }
 
-        /* Stats Bar */
+        /* Stats Bar - Updated to Green Background */
         .stats {
-            background-color: var(--dark-blue);
+            background-color: var(--accent-green);
             color: #ffffff;
             display: flex;
             justify-content: space-around;
@@ -686,13 +691,13 @@
         }
 
         .stat-item:hover h2 {
-            color: #60a5fa;
-            text-shadow: 0 0 15px rgba(96, 165, 250, 0.4);
+            color: #a7f3d0;
+            text-shadow: 0 0 15px rgba(167, 243, 208, 0.4);
         }
 
         .stat-item p {
             font-size: 12px;
-            color: #b0cbef;
+            color: #e2e8f0;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 600;
