@@ -18,7 +18,7 @@
             --dark-blue: #002f6c;
             --black: #111111;
             --gray: #4a4a4a;
-            --light-gray: #f4f6f8;
+            --light-gray: #f8fafc;
             --border-color: #e2e8f0;
             --accent-green: #2e7d32;
             
@@ -34,7 +34,7 @@
         body {
             color: var(--black);
             line-height: 1.6;
-            background-color: #050811;
+            background-color: #ffffff;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
@@ -159,9 +159,9 @@
         .hero {
             background: linear-gradient(
                 90deg, 
-                rgba(255, 255, 255, 0.95) 0%, 
-                rgba(255, 255, 255, 0.88) 50%, 
-                rgba(255, 255, 255, 0.3) 100%
+                rgba(255, 255, 255, 0.98) 0%, 
+                rgba(255, 255, 255, 0.92) 50%, 
+                rgba(255, 255, 255, 0.6) 100%
             ), 
             url('Hero.png') center/cover no-repeat;
             color: var(--black);
@@ -177,7 +177,7 @@
             left: 0;
             width: 100%;
             height: 120px;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #050811 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #f8fafc 100%);
             pointer-events: none;
         }
 
@@ -233,7 +233,7 @@
             text-transform: uppercase;
             transition: var(--transition-fast);
             display: inline-block;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         /* Animated Scroll Indicator */
@@ -257,7 +257,7 @@
             border: 2px solid var(--dark-blue);
             border-radius: 15px;
             position: relative;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(4px);
         }
 
@@ -301,12 +301,12 @@
             60% { transform: rotate(45deg) translate(2px, 2px); opacity: 1; }
         }
 
-        /* 3D FIELD TRANSITION CONTAINER */
+        /* 3D FIELD TRANSITION CONTAINER (WHITE THEME) */
         .fld__field {
             position: relative;
             width: 100%;
             height: 600vh;
-            background-color: #050811;
+            background-color: #f8fafc;
         }
 
         .fld__stage {
@@ -330,7 +330,7 @@
             will-change: transform;
         }
 
-        /* Centered 3D Floating Cards */
+        /* Centered 3D Floating Cards (Light Cards with High Contrast) */
         .fld__pl {
             position: absolute;
             top: 50%;
@@ -340,19 +340,19 @@
             min-height: 380px;
             transform-style: preserve-3d;
             transform: translate3d(-50%, -50%, calc(var(--z, 0) * 1px));
-            background: rgba(17, 17, 24, 0.94);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             border-top: 4px solid var(--primary-blue);
             padding: 40px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85);
+            box-shadow: 0 20px 50px rgba(0, 47, 108, 0.12);
             transition: opacity 0.3s ease, visibility 0.3s ease, border-color 0.4s ease;
             will-change: transform, opacity;
             display: flex;
             flex-direction: row;
             align-items: center;
             gap: 30px;
-            border-radius: 6px;
+            border-radius: 8px;
         }
 
         .fld__pl.accent-green { border-top-color: var(--accent-green); }
@@ -362,14 +362,14 @@
 
         .card-body {
             flex: 1;
-            color: #ffffff;
+            color: var(--black);
         }
 
         .card-body h4 {
             font-size: 26px;
-            color: #ffffff;
+            color: var(--dark-blue);
             margin-bottom: 16px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .card-body ul {
@@ -379,7 +379,7 @@
 
         .card-body ul li {
             font-size: 15px;
-            color: #cbd5e1;
+            color: #334155;
             margin-bottom: 12px;
             position: relative;
             padding-left: 20px;
@@ -387,7 +387,7 @@
         }
 
         .card-body ul li strong {
-            color: #ffffff;
+            color: var(--black);
         }
 
         .card-body ul li::before {
@@ -403,10 +403,10 @@
         .card-image-wrapper {
             flex: 0 0 38%;
             height: 250px;
-            border-radius: 4px;
+            border-radius: 6px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            background-color: #1a1a1a;
+            border: 1px solid var(--border-color);
+            background-color: #f1f5f9;
         }
 
         .card-img {
@@ -415,7 +415,7 @@
             object-fit: cover;
         }
 
-        /* HUD Overlay Elements */
+        /* HUD Overlay Elements (Adapted for White Light Background) */
         .fld__hud {
             position: absolute;
             inset: 0;
@@ -437,16 +437,15 @@
             font-size: 24px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #38bdf8;
+            color: var(--primary-blue);
             font-weight: 800;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .fld__hud-r {
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #94a3b8;
+            color: #64748b;
         }
 
         .fld__hud-bottom {
@@ -464,21 +463,21 @@
         .fld__hud-n {
             font-size: 48px;
             font-weight: 300;
-            color: #ffffff;
+            color: var(--dark-blue);
             line-height: 1;
         }
 
         .fld__hud-t {
             font-size: 20px;
             font-weight: 600;
-            color: #ffffff;
+            color: var(--black);
             letter-spacing: 0.5px;
         }
 
         .fld__hud-bar {
             width: 200px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.15);
+            height: 4px;
+            background: #cbd5e1;
             border-radius: 2px;
             overflow: hidden;
         }
@@ -487,7 +486,7 @@
             display: block;
             height: 100%;
             width: 100%;
-            background: #60a5fa;
+            background: var(--primary-blue);
             transform-origin: left;
             transform: scaleX(0);
             transition: transform 0.1s linear;
