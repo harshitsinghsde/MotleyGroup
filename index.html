@@ -177,7 +177,7 @@
             left: 0;
             width: 100%;
             height: 120px;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #f8fafc 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
             pointer-events: none;
         }
 
@@ -301,7 +301,97 @@
             60% { transform: rotate(45deg) translate(2px, 2px); opacity: 1; }
         }
 
-        /* 3D FIELD TRANSITION CONTAINER (WHITE THEME) */
+        /* CORPORATE OVERVIEW / PHILOSOPHY SECTION (TATA-STYLE) */
+        .corp-overview {
+            background-color: #ffffff;
+            color: var(--black);
+            padding: 100px 12% 110px 12%;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .corp-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .dropcap-lead {
+            font-size: 26px;
+            line-height: 1.5;
+            color: #1a202c;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .dropcap-lead::first-letter {
+            font-size: 64px;
+            float: left;
+            line-height: 0.8;
+            padding-right: 12px;
+            font-weight: 800;
+            color: var(--dark-blue);
+        }
+
+        .corp-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 24px;
+        }
+
+        .corp-heading {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin: 45px 0 20px 0;
+            letter-spacing: -0.3px;
+        }
+
+        .corp-quote {
+            font-style: italic;
+            font-size: 17px;
+            line-height: 1.7;
+            color: #2d3748;
+            border-left: 3px solid var(--primary-blue);
+            padding-left: 20px;
+            margin: 25px 0;
+        }
+
+        .corp-quote-author {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--primary-blue);
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        .corp-list {
+            margin-top: 20px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .corp-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 18px;
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        .corp-list li strong {
+            color: #1a202c;
+        }
+
+        .corp-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        /* 3D FIELD TRANSITION CONTAINER */
         .fld__field {
             position: relative;
             width: 100%;
@@ -330,7 +420,7 @@
             will-change: transform;
         }
 
-        /* Centered 3D Floating Cards (Light Cards with High Contrast) */
+        /* Centered 3D Floating Cards */
         .fld__pl {
             position: absolute;
             top: 50%;
@@ -415,7 +505,7 @@
             object-fit: cover;
         }
 
-        /* HUD Overlay Elements (Adapted for White Light Background) */
+        /* HUD Overlay Elements */
         .fld__hud {
             position: absolute;
             inset: 0;
@@ -568,6 +658,9 @@
                 width: 100%;
                 height: 180px;
             }
+            .corp-overview {
+                padding: 60px 8%;
+            }
         }
     </style>
 </head>
@@ -583,6 +676,7 @@
             </div>
         </div>
         <ul class="nav-links">
+            <li><a href="#about">About Us</a></li>
             <li><a href="#services">Services Field</a></li>
             <li><a href="mailto:contact@motleygroup.com">Contact</a></li>
         </ul>
@@ -597,12 +691,12 @@
             <p>A single, accountable execution partner delivering in-house utility manufacturing, statutory clearances, precision diagnostics, and next-generation Edge AI hazard defense.</p>
             <div class="hero-buttons">
                 <a href="mailto:contact@motleygroup.com" class="btn-quote">Request Proposal</a>
-                <a href="#services" class="btn-secondary">Explore Services</a>
+                <a href="#about" class="btn-secondary">Explore Profile</a>
             </div>
         </div>
 
         <!-- Animated Scroll Down Guidance -->
-        <a href="#services" class="scroll-indicator">
+        <a href="#about" class="scroll-indicator">
             <span>Scroll Down</span>
             <div class="mouse">
                 <div class="wheel"></div>
@@ -610,6 +704,58 @@
             <div class="arrow"></div>
         </a>
     </header>
+
+    <!-- CORPORATE OVERVIEW & PHILOSOPHY SECTION -->
+    <section class="corp-overview" id="about">
+        <div class="corp-container">
+            <p class="dropcap-lead">
+                Motley Group is the principal integrated environmental engineering, regulatory compliance, and critical safety infrastructure enterprise headquartered in Kanpur Nagar, Uttar Pradesh.
+            </p>
+
+            <p class="corp-text">
+                Operating across industrial, healthcare, and commercial sectors, Motley Group acts as a single, accountable shield. We safeguard core infrastructure through high-efficiency in-house water fabrication, zero-friction regulatory clearances, and smart early-warning hazard defense technologies.
+            </p>
+
+            <p class="corp-text">
+                Each division within Motley Group operates with dedicated technical expertise—under the overarching guidance of our engineering and compliance leadership—to ensure operational resilience and absolute statutory integrity.
+            </p>
+
+            <h2 class="corp-heading">Corporate Governance & Mission</h2>
+
+            <div class="corp-quote">
+                "Our vision is to be the most trusted integrated environmental engineering and critical safety infrastructure enterprise—delivering sustainable water manufacturing, zero-friction regulatory clearances, and smart early-warning safety technologies under one accountable shield."
+                <br>
+                <span class="corp-quote-author">— Motley Group Vision Statement</span>
+            </div>
+
+            <p class="corp-text">
+                Our Mission Philosophy is to ensure transparent, reliable, and accountable infrastructure management to protect the operational interests of all stakeholders, including industrial enterprises, healthcare providers, municipal bodies, and society at large. As a responsible engineering partner, Motley Group strictly adheres to statutory standards and environmental mandates.
+            </p>
+
+            <p class="corp-text">
+                Our Operational Framework is based on long-term industrial resilience. As manufacturing and institutional facilities become more complex and tightly regulated, it is imperative to build sustainable, self-reliant utility and safety operations.
+            </p>
+
+            <p class="corp-text" style="font-weight: 600; color: #1a202c; margin-top: 30px;">
+                Motley Group's execution scope is governed by four primary core pillars:
+            </p>
+
+            <ul class="corp-list">
+                <li>
+                    <strong>Water & Wastewater Treatment Engineering:</strong> In-house design, sizing, and fabrication of Effluent Treatment Plants (ETP), Sewage Treatment Plants (STP), and industrial RO/Softener filtration systems.
+                </li>
+                <li>
+                    <strong>Statutory Approvals & Environmental Liaison:</strong> Comprehensive handling of UPPCB CTE/CTO consents, Bio-Medical Waste (BMW) authorizations, CGWA NOCs, CMO registrations, and AERB clearances.
+                </li>
+                <li>
+                    <strong>Critical Infrastructure Protection:</strong> Turnkey fire protection systems, automatic sprinklers, gas suppression, and non-invasive FLIR infrared thermal diagnostics.
+                </li>
+                <li>
+                    <strong>Edge AI Vision Labs:</strong> Sub-5-second visual fire and smoke detection running locally on existing CCTV infrastructure with instant alert integration.
+                </li>
+            </ul>
+        </div>
+    </section>
 
     <!-- 3D Field Transition Services Container -->
     <div class="fld__field" id="services" data-fld="">
